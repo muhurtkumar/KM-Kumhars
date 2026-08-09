@@ -8,7 +8,7 @@ const NAV_LINKS = [
   {
     label: "OUR PROJECTS",
     href: "#projects",
-    dropdown: ["Interior Design", "3D & 2D Rendering", "Space Planning"],
+    dropdown: ["Interior Design", "3D & 2D Rendering"],
   },
   { label: "CONTACT US", href: "#contact" },
 ];
