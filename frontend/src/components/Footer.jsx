@@ -29,7 +29,7 @@ const Footer = () => {
             >
               <button
                 type="submit"
-                className="h-16.25 w-full rounded-md shrink-0 bg-[#87864E] text-[15px] font-semibold uppercase tracking-[1.5px] text-white transition hover:bg-[#979663] sm:w-49.5"
+                className="h-16.25 w-full rounded-md  bg-[#87864E] text-[15px] font-semibold uppercase tracking-[1.5px] text-white transition hover:bg-[#979663] sm:w-49.5"
               >
                 Contact Us
               </button>
@@ -62,13 +62,13 @@ const Footer = () => {
                 >
                   <i className="fa-brands fa-square-youtube" />
                 </a>
-                <a5
+                <a
                   href="#instagram"
                   aria-label="Instagram"
                   className="transition hover:text-[#636139]"
                 >
                   <i className="fa-brands fa-instagram" />
-                </a5>
+                </a>
                 <a
                   href="#linkedin"
                   aria-label="LinkedIn"
