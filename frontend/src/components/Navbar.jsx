@@ -33,7 +33,7 @@ export default function Navbar() {
         </a>
 
         {/* Desktop  nav — unchanged, simple hover dropdown */}
-        <ul className="hidden md:flex items-center gap-7 lg:gap-11 xl:gap-14 list-none m-0 p-0">
+        <ul className="hidden md:flex items-center gap-5 lg:gap-7 xl:gap-9 list-none m-0 p-0">
           {NAV_LINKS.map((link) => (
             <li
               key={link.label}
@@ -43,7 +43,7 @@ export default function Navbar() {
             >
               <a
                 href={link.href}
-                className="flex items-center gap-1 text-[15px] lg:text-[16px] font-bold tracking-wide uppercase no-underline text-[#1C1C1A] hover:opacity-60 transition-opacity focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1C1C1A]"
+                className="flex items-center gap-1 text-[14px] lg:text-[15px] font-bold tracking-wide uppercase no-underline text-[#1C1C1A] hover:opacity-60 transition-opacity focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1C1C1A]"
               >
                 {link.label}
                 {link.dropdown && (
@@ -52,7 +52,7 @@ export default function Navbar() {
               </a>
 
               {link.dropdown && dropdownOpen && (
-                <ul className="absolute top-full left-0 pt-4 min-w-[210px] bg-[#EFEDE4] shadow-lg py-2 list-none m-0">
+                <ul className="absolute top-full left-0 pt-4 min-w-52.5 bg-[#EFEDE4] shadow-lg py-2 list-none m-0">
                   {link.dropdown.map((item) => (
                     <li key={item}>
                       <a
@@ -74,7 +74,7 @@ export default function Navbar() {
           aria-label="Toggle menu"
           aria-expanded={mobileOpen}
           onClick={() => setMobileOpen(!mobileOpen)}
-          className="flex md:hidden items-center justify-center w-11 h-9 sm:w-12 sm:h-10 shrink-0 bg-[#1C1C1A] text-white border-none cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C1C1A]"
+          className="flex md:hidden items-center justify-center w-11 h-9 sm:w-12 sm:h-10 shrink-0 bg-[#1C1C1A] text-white border-none cursor-pointer focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[#1C1C1A]"
         >
           {mobileOpen ? <X size={20} /> : <Menu size={20} />}
         </button>
