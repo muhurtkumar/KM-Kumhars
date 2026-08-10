@@ -18,7 +18,7 @@ const Footer = () => {
         <div aria-hidden="true" className="h-40.25 bg-white" />
 
         {/* Figma CTA card: 1340 × 323, overlapping the white and cream areas. */}
-        <section className="absolute left-1/2 top-0 z-10 h-80.75 w-[calc(100%-2rem)] max-w-335 -translate-x-1/2 bg-[#636139] text-white sm:w-[calc(100%-3rem)]">
+        <section className="absolute left-1/2 top-8 z-10 h-80.75 w-[calc(100%-2rem)] max-w-270 -translate-x-1/2 bg-[#636139] text-white sm:w-[calc(100%-3rem)]">
           <div className="flex h-full flex-col items-center justify-center px-6 text-center">
             <h2 className="max-w-278 text-[38px] font-black uppercase leading-[1.15] tracking-[4.2px] sm:text-[50px] lg:text-[60px]">
               Let&apos;s Design Your Next Space Together
@@ -38,8 +38,8 @@ const Footer = () => {
         </section>
 
         {/* Footer background starts at the card midpoint; content clears the overlap. */}
-        <div className="bg-[#E8E7CE]/90 pt-55.5 lg:pt-40.5">
-          <div className="mx-auto grid w-[calc(100%-3rem)] max-w-335 grid-cols-1 gap-12 pb-14 md:grid-cols-2 lg:grid-cols-[427px_313px_1fr] lg:gap-x-18 lg:py-18 ">
+        <div className="bg-[#E8E7CE]/90 pt-63.5 sm:pt-65.5 lg:pt-40.5">
+          <div className="mx-auto grid w-[calc(100%-3rem)] max-w-270 grid-cols-1 gap-12 pb-14 md:grid-cols-2 lg:grid-cols-[427px_313px_1fr] lg:gap-x-12 lg:py-18 ">
             <section className="md:col-span-2 lg:col-span-1">
               <FooterTitle>Information</FooterTitle>
               <p className="max-w-106.75 text-[17px] leading-[1.7]">
@@ -62,13 +62,13 @@ const Footer = () => {
                 >
                   <i className="fa-brands fa-square-youtube" />
                 </a>
-                <a
+                <a5
                   href="#instagram"
                   aria-label="Instagram"
                   className="transition hover:text-[#636139]"
                 >
                   <i className="fa-brands fa-instagram" />
-                </a>
+                </a5>
                 <a
                   href="#linkedin"
                   aria-label="LinkedIn"
@@ -133,7 +133,7 @@ const Footer = () => {
                 {/* Subscribe button */}
                 <button
                   type="submit"
-                  className="h-16.25 w-50 rounded-md bg-[#87864E] text-[15px] font-semibold uppercase tracking-[1.5px] text-white transition hover:bg-[#636139] sm:w-49.5"
+                  className="h-16.25 w-40 rounded-md bg-[#87864E] text-[15px] font-semibold uppercase tracking-[1.5px] text-white transition hover:bg-[#636139] sm:w-49.5"
                 >
                   Subscribe
                 </button>
@@ -146,7 +146,7 @@ const Footer = () => {
               className="
                 mx-auto flex
                 w-[calc(100%-2rem)]
-                max-w-335
+                max-w-270
                 flex-col
                 gap-3
                 py-4
@@ -194,7 +194,7 @@ const Footer = () => {
 };
 
 const FooterTitle = ({ children }) => (
-  <h4 className="mb-6 text-[25px] font-extrabold gap-5 uppercase leading-none tracking-[1.75px] text-[#1B1717]">
+  <h4 className="mb-6 text-[25px] font-bold gap-5 uppercase leading-none tracking-[1.75px] text-[#0A0806]">
     {children}
   </h4>
 );
