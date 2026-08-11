@@ -1,8 +1,5 @@
 import React from "react";
 
-const ctaButtonFrame =
-  "https://www.figma.com/api/mcp/asset/fdf54238-0869-46c4-99b7-fd1d5d268e37.svg";
-
 const navItems = [
   ["Homepage", "#home"],
   ["About Us", "#about"],
@@ -19,7 +16,7 @@ const Footer = () => {
 
         {/* Figma CTA card: 1340 × 323, overlapping the white and cream areas. */}
         <section className="absolute left-1/2 top-8 z-10 h-80.75 w-[calc(100%-2rem)] max-w-270 -translate-x-1/2 bg-[#636139] text-white sm:w-[calc(100%-3rem)]">
-          <div className="flex h-full flex-col items-center justify-center px-6 text-center">
+          <div className="flex h-full flex-col items-center justify-center py-20 text-center">
             <h2 className="max-w-278 text-[38px] font-black uppercase leading-[1.15] tracking-[4.2px] sm:text-[50px] lg:text-[60px]">
               Let&apos;s Design Your Next Space Together
             </h2>
@@ -194,7 +191,7 @@ const Footer = () => {
 };
 
 const FooterTitle = ({ children }) => (
-  <h4 className="mb-6 text-[25px] font-bold gap-5 uppercase leading-none tracking-[1.75px] text-[#0A0806]">
+  <h4 className="mb-6 text-[18px] font-bold gap-2 uppercase leading-none tracking-[1.75px] text-[#0A0806]">
     {children}
   </h4>
 );
