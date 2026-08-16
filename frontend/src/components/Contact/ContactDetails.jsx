@@ -18,15 +18,15 @@ const ContactDetails = () => {
       </div>
 
       {/* Studio Details */}
-      <div className="w-full rounded-xl bg-[#293801] px-6 py-7 text-white sm:px-7 sm:py-8 lg:px-8 lg:py-9">
-        <h3 className="mb-6 font-['Poppins'] text-[14px] font-bold uppercase tracking-[0.08em] text-white sm:text-[15px] lg:text-[16px]">
+      <div className="w-full rounded-xl bg-[#3d4d13] px-6 py-7 text-white sm:px-7 sm:py-8 lg:px-8 lg:py-9">
+        <h3 className="mb-6 font-['Poppins'] text-[14px] font-bold uppercase tracking-[0.08em] text-white sm:text-[15px] md:text-[16px] lg:text-[16px]">
           Studio Details
         </h3>
 
         <div className="space-y-5 sm:space-y-3">
           {/* Address */}
           <div>
-            <p className="font-['Poppins'] text-[13px] text-white/60 sm:text-[14px] lg:text-[15px]">
+            <p className="font-['Poppins'] text-[13px] text-white/60 sm:text-[14px] md:text-[15px] lg:text-[15px]">
               Address
             </p>
 
@@ -59,11 +59,11 @@ const ContactDetails = () => {
 
           {/* Studio Hours */}
           <div>
-            <p className="font-['Poppins'] text-[13px] text-white/60 sm:text-[14px] lg:text-[15px]">
+            <p className="font-['Poppins'] text-[13px] text-white/60 sm:text-[14px]  lg:text-[15px]">
               Studio Hours
             </p>
 
-            <p className="font-['Poppins'] text-[13px] font-medium leading-[1.6] text-white sm:text-[14px] lg:text-[15px]">
+            <p className="font-['Poppins'] text-[13px] font-medium leading-[1.6] text-white sm:text-[14px]  lg:text-[15px]">
               Mon – Sat: 10:00 AM – 7:00 PM
               <br />
               Sunday: By Appointment
