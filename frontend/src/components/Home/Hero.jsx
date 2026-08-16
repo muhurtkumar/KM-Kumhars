@@ -78,7 +78,6 @@ export default function Hero() {
 
       {/* Bottom Cards */}
       <HeroCards />
-      <WhyChooseUs/>
 
     </>
   );
