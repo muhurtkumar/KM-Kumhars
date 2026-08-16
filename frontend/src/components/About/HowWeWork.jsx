@@ -46,7 +46,7 @@ export default function HowWeWork() {
       <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 md:px-10 lg:px-12 xl:px-16 2xl:px-0">
 
         {/* Small section label */}
-        <p className="font-[Poppins] text-[10px] font-bold uppercase tracking-wide text-[#666666]">
+        <p className="font-[Poppins] text-[px] font-bold uppercase tracking-wide text-[#666666]">
           HOW WE WORK
         </p>
 
@@ -57,12 +57,12 @@ export default function HowWeWork() {
           Small screens:
           Heading comes first, followed immediately by the image.
         */}
-        <div className="mt-5 xl:grid xl:grid-cols-[minmax(0,1fr)_480px] xl:items-start xl:gap-14">
+        <div className="mt-5 xl:grid xl:grid-cols-[minmax(0,1fr)_500px] xl:items-start xl:gap-14">
 
           {/* LEFT SIDE */}
           <div>
             {/* Main heading */}
-            <h2 className="font-[Poppins] text-[28px] font-black uppercase leading-[1.2] tracking-wide text-[#211F1F] sm:text-[34px] md:text-[38px] xl:text-[40px]">
+            <h2 className="font-[Poppins] text-[40px] font-black uppercase leading-[1.2] tracking-wide text-[#211F1F] sm:text-[34px] md:text-[38px] xl:text-[40px]">
               HOW WE BRING YOUR STORY
               <br />
               INTO SPACE
@@ -84,7 +84,7 @@ export default function HowWeWork() {
             </div>
 
             {/* Process steps */}
-            <div className="mt-8 xl:mt-8">
+            <div className="mt-8 xl:mt-15">
               {STEPS.map((step) => (
                 <div
                   key={step.number}
@@ -92,17 +92,17 @@ export default function HowWeWork() {
                 >
                   {/* Step title */}
                   <div className="flex items-baseline gap-2">
-                    <span className="font-[Poppins] text-[22px] font-bold leading-none text-[#48621e] sm:text-[25px]">
+                    <span className="font-[Poppins] text-[22px] font-bold leading-none text-[#48621e] sm:text-[28px]">
                       {step.number}
                     </span>
 
-                    <h3 className="font-[Poppins] text-[22px] font-bold leading-tight text-[#161616] sm:text-[25px]">
+                    <h3 className="font-[Poppins] text-[22px] font-bold leading-tight text-[#161616] sm:text-[28px]">
                       {step.title}
                     </h3>
                   </div>
 
                   {/* Step description */}
-                  <p className="mt-2 max-w-[700px] font-[Poppins] text-[12px] leading-[1.5] text-[#444444] sm:text-[14px]">
+                  <p className="mt-4 max-w-[700px] font-[Poppins] text-[12px] leading-[1.5] text-[#444444] sm:text-[14px]">
                     {step.description}
                   </p>
                 </div>
@@ -121,7 +121,7 @@ export default function HowWeWork() {
             <img
               src={howWeWorkImage}
               alt="Modern interior space designed by KM Kumhars Design Studio"
-              className="h-full min-h-[780px] w-full object-cover object-center"
+              className="h-full min-h-[850px] w-full object-cover object-center"
             />
           </div>
         </div>
