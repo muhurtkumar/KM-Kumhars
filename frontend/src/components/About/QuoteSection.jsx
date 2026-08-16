@@ -3,163 +3,235 @@ import { Phone } from "lucide-react";
 
 export default function QuoteSection() {
   return (
-    <section className="mt-8 xl:mt-35 w-full bg-white">
+    <section className="lg:mt-35 mt-15 w-full bg-white">
       {/* =========================================================
           QUOTE + CALL US NOW
           ========================================================= */}
-      {/* Quote + Call Us Section */}
-      <section className="mt-8 w-full bg-white xl:mt-35">
-        {/* =========================================================
-      QUOTE + CALL US NOW
-      ========================================================= */}
-        <section className="relative w-full bg-[#263900]">
-          <div
-            className="
-        relative mx-auto
-        min-h-[345px]
-        max-w-[1250px]
-        px-4
-        sm:min-h-[360px] sm:px-8
-        md:min-h-[380px] md:px-10
-        lg:min-h-[400px] lg:px-12
+      {/* =========================================================
+    QUOTE + CALL US NOW
+    ========================================================= */}
+      <section className="relative w-full bg-[#263900]">
+  <div
+    className="
+      relative
+      mx-auto
+      w-full
+      max-w-[1500px]
+      px-5
+
+      /* =========================
+         MOBILE
+         ========================= */
+      min-h-[150px]
+
+      /* =========================
+         SMALL / MOBILE
+         ========================= */
+      sm:min-h-[100px]
+      sm:px-8
+
+      /* =========================
+         MEDIUM / TABLET
+         ========================= */
+      md:min-h-[200px]
+      md:px-10
+
+      /* =========================
+         LARGE
+         ========================= */
+      lg:min-h-[400px]
+      lg:px-12
+    "
+  >
+    {/* =====================================================
+        IMAGE + CALL US CARD
+        ===================================================== */}
+    <div
+      className="
+        absolute
+        left-5
+        top-[-30px]
+        z-20
+        w-[180px]
+
+        sm:left-8
+        sm:top-[-35px]
+        sm:w-[220px]
+
+        /* TABLET */
+        md:left-10
+        md:top-[-40px]
+        md:w-[280px]
+
+        /* DESKTOP */
+        lg:left-12
+        lg:top-[-55px]
+        lg:w-[350px]
       "
-          >
-            {/* =====================================================
-          IMAGE
-          The image intentionally sits slightly outside the
-          top of the green section.
-          ===================================================== */}
-            <div
-              className="
+    >
+      {/* Interior Image */}
+      <img
+        src={quoteImage}
+        alt="Interior designed by KM Kumhars Design Studio"
+        className="h-auto w-full object-cover"
+      />
+
+      {/* =================================================
+          CALL US CARD
+          ================================================= */}
+      <div
+        className="
           absolute
-          left-4
-          top-[-30px]
-          w-[145px]
-          sm:left-8
-          sm:top-[-30px]
+          bottom-[-38px]
+          right-[-80px]
+          z-30
+          w-[165px]
+          border-2
+          bg-[#F7F6F2]
+          px-4
+          py-4
+          sm:bottom-[-42px]
+          sm:right-[-35px]
           sm:w-[190px]
-          md:left-10
-          md:top-[-35px]
-          md:w-[230px]
-          lg:left-12
-          lg:top-[-55px]
-          lg:w-[350px]
+          sm:px-5
+          sm:py-5
+          /* TABLET */
+          md:bottom-[-45px]
+          md:right-[-40px]
+          md:w-[205px]
+          md:px-5
+          md:py-5
+          /* DESKTOP */
+          lg:bottom-[-50px]
+          lg:right-[-45px]
+          lg:w-[220px]
+          lg:px-6
+          lg:py-6
         "
-            >
-              <img
-                src={quoteImage}
-                alt="Interior designed by KM Kumhars Design Studio"
-                className="h-auto w-full object-cover"
-              />
-
-              {/* ===================================================
-            CALL US NOW CARD
-            Overlaps the bottom-right corner of the image.
-            =================================================== */}
-              <div
-                className="
-            absolute
-            bottom-[-28px]
-            right-[-28px]
-            w-[145px]
-            bg-[#F7F6F2]
-            px-3
-            py-3
-            sm:bottom-[-40px]
-            sm:right-[-45px]
-            sm:w-[180px]
-            sm:p-5
-            md:w-[200px]
-            lg:w-[220px]
-          "
-              >
-                {/* Phone icon */}
-                <Phone
-                  className="
-              mb-2
-              h-4
-              w-4
+      >
+        {/* Phone icon */}
+        <div className="mb-2">
+          <Phone
+            className="
+              h-5
+              w-5
               text-[#777777]
-              sm:h-5
-              sm:w-5
+              sm:h-6
+              sm:w-6
+              md:h-6
+              md:w-6
+              lg:h-7
+              lg:w-7
             "
-                  strokeWidth={2.5}
-                />
+            strokeWidth={2}
+          />
+        </div>
 
-                <p
-                  className="
-              font-[Poppins]
-              text-[8px]
-              font-bold
-              uppercase
-              sm:text-[10px]
-              md:text-[11px]
-            "
-                >
-                  CALL US NOW
-                </p>
-
-                <p
-                  className="
-              mt-1
-              font-[Poppins]
-              text-[6px]
-              text-[#666666]
-              sm:mt-2
-              sm:text-[8px]
-              md:text-[9px]
-            "
-                >
-                  (+92) 123 456 789
-                </p>
-              </div>
-            </div>
-
-            {/* =====================================================
-          QUOTE
-          Font and available width scale with the screen.
-          ===================================================== */}
-            <div
-              className="
-          flex
-          min-h-[345px]
-          items-center
-          justify-end
-          pl-[175px]
-          sm:min-h-[360px]
-          sm:pl-[245px]
-          md:min-h-[380px]
-          md:pl-[320px]
-          lg:min-h-[380px]
-          lg:pl-[420px]
-        "
-            >
-              <h2
-                className="
-            w-full
-            max-w-[150px]
+        {/* Call Us */}
+        <p
+          className="
             font-[Poppins]
-            text-[18px]
-            font-black
+            text-[9px]
+            font-bold
             uppercase
-            leading-[1.25]
-            tracking-wide
-            text-white
-            sm:max-w-[250px]
-            sm:text-[27px]
-            md:max-w-[400px]
-            md:text-[32px]
-            lg:max-w-[620px]
-            lg:text-[45px]
-            xl:text-[50px]
+            text-[#211F1F]
+            sm:text-[10px]
+            md:text-[10px]
+            lg:text-[11px]
           "
-              >
-                "DRIVEN BY HARD WORK. DEFINED BY QUALITY."
-              </h2>
-            </div>
-          </div>
-        </section>
-      </section>
+        >
+          CALL US NOW
+        </p>
+
+        {/* Phone Number */}
+        <p
+          className="
+            mt-2
+            font-[Poppins]
+            text-[7px]
+            text-[#666666]
+            sm:text-[8px]
+            md:text-[8px]
+            lg:text-[9px]
+          "
+        >
+          (+92) 123 456 789
+        </p>
+      </div>
+    </div>
+
+    {/* =====================================================
+        QUOTE
+        ===================================================== */}
+    <div
+      className="
+        flex
+        min-h-[100px]
+        justify-center
+        pb-12
+        pt-[160px]
+
+        /* =========================
+           MOBILE
+           ========================= */
+
+        sm:min-h-[500px]
+        sm:px-5
+        sm:pt-[250px]
+
+        /* =========================
+           TABLET / MEDIUM
+           ========================= */
+        md:min-h-[150px]
+        md:px-89
+        md:pt-[50px]
+
+        /* =========================
+           DESKTOP
+           ========================= */
+
+        lg:min-h-[400px]
+        lg:items-center
+        lg:justify-end
+        lg:px-0
+        lg:pb-0
+        lg:pt-0
+        lg:pl-[440px]
+      "
+    >
+      <h2
+        className="
+          w-full
+          max-w-[320px]
+          text-center
+          font-[Poppins]
+          text-[25px]
+          font-black
+          uppercase
+          leading-[1.2]
+          tracking-wide
+          text-white
+          sm:max-w-[430px]
+          sm:text-[30px]
+
+          /* TABLET */
+
+          md:max-w-[560px]
+          md:text-[32px]
+
+          /* DESKTOP */
+          lg:max-w-[620px]
+          lg:text-left
+          lg:text-[45px]
+
+          xl:text-[50px]
+        "
+      >
+        "DRIVEN BY HARD WORK. DEFINED BY QUALITY."
+      </h2>
+    </div>
+  </div>
+</section>
 
       {/* =========================================================
           FOUNDER'S NOTE
@@ -187,7 +259,7 @@ export default function QuoteSection() {
           <blockquote
             className="
               mt-4
-              max-w-[850px]
+              max-w-[1500px]
               font-serif
               text-[18px]
               leading-[1.45]
