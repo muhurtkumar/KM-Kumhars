@@ -21,7 +21,7 @@ const Footer = () => {
               Let&apos;s Design Your Next Space Together
             </h2>
             <a
-              href="#contact"
+              href="/contact"
               className="relative mt-8 flex h-18.25 w-47.5 shrink-0 items-center justify-center overflow-hidden text-[15px] font-semibold uppercase tracking-[1.5px]"
             >
               <button
