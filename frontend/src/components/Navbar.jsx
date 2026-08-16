@@ -2,8 +2,8 @@ import { useState } from "react";
 import { ChevronDown, Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
-  { label: "HOME", href: "#home" },
-  { label: "ABOUT US", href: "#about" },
+  { label: "HOME", href: "/" },
+  { label: "ABOUT US", href: "/about" },
   { label: "OUR SERVICES", href: "#services" },
   {
     label: "OUR PROJECTS",
