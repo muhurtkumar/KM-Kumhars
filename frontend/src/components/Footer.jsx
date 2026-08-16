@@ -75,7 +75,6 @@ const Footer = () => {
                 </a>
               </div>
             </section>
-
             <nav aria-label="Footer navigation">
               <FooterTitle>Navigation</FooterTitle>
               <ul className="space-y-3.5 text-[17px]">

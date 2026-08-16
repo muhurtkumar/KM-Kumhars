@@ -1,5 +1,6 @@
-import LivingRoom from "../assets/Hero/HeroImage.png";
+import LivingRoom from "../../assets/Hero/HeroImage.png"
 import HeroCards from "./HeroCards";
+import WhyChooseUs from "./WhyChooseUs";
 
 export default function Hero() {
   return (
@@ -62,6 +63,7 @@ export default function Hero() {
       {/* Bottom Cards */}
 
       <HeroCards />
+      <WhyChooseUs/>
 
     </section>
   );
