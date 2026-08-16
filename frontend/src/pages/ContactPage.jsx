@@ -1,9 +1,11 @@
-import Hero from "../components/Home/Hero";
+import ContactSection from '../components/Contact/ContactSection';
+import ContactHero from './../components/Contact/ContactHero';
 
 const Contact = () => {
   return (
     <main>
-      <Hero />
+      <ContactHero />
+      <ContactSection />
     </main>
   );
 };

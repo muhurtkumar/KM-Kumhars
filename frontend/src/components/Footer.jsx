@@ -1,10 +1,10 @@
 import React from "react";
 
 const navItems = [
-  ["Homepage", "#home"],
-  ["About Us", "#about"],
-  ["Services", "#services"],
-  ["Project", "#projects"],
+  ["Homepage", "/"],
+  ["About Us", "/about"],
+  ["Services", "/services"],
+  ["Project", "/projects"],
 ];
 
 const Footer = () => {
