@@ -1,11 +1,13 @@
-import Hero from "../components/Home/Hero";
+import AboutHero from "../components/About/AboutHero";
+import WhoWeAre from "../components/About/WhoWeAre";
+import HowWeWork from "../components/About/HowWeWork";
 
-const About = () => {
+export default function About() {
   return (
-    <main>
-      <Hero />
-    </main>
+    <>
+      <AboutHero />
+      <WhoWeAre />
+      <HowWeWork />
+    </>
   );
-};
-
-export default About;
+}

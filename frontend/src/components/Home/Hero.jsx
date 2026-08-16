@@ -1,4 +1,5 @@
 import LivingRoom from "../../assets/Hero/HeroImage.png"
+import HeroImageMobile from "../../assets/Hero/HeroImageMobile.jpg"
 import HeroCards from "./HeroCards";
 import WhyChooseUs from "./WhyChooseUs";
 
