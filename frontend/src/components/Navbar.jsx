@@ -4,13 +4,13 @@ import { ChevronDown, Menu, X } from "lucide-react";
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
   { label: "ABOUT US", href: "/about" },
-  { label: "OUR SERVICES", href: "#services" },
+  { label: "OUR SERVICES", href: "/services" },
   {
     label: "OUR PROJECTS",
-    href: "#projects",
+    href: "/projects",
     dropdown: ["Interior Design", "3D & 2D Rendering"],
   },
-  { label: "CONTACT US", href: "#contact" },
+  { label: "CONTACT US", href: "/contact" },
 ];
 
 export default function Navbar() {

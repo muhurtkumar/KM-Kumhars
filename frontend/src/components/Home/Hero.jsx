@@ -1,6 +1,7 @@
-import LivingRoom from "../assets/Hero/HeroImage.png";
-import HeroImageMobile from "../assets/Hero/HeroImageMobile.jpg";
+import LivingRoom from "../../assets/Hero/HeroImage.png"
+import HeroImageMobile from "../../assets/Hero/HeroImageMobile.jpg"
 import HeroCards from "./HeroCards";
+import WhyChooseUs from "./WhyChooseUs";
 
 export default function Hero() {
   return (
@@ -77,6 +78,8 @@ export default function Hero() {
 
       {/* Bottom Cards */}
       <HeroCards />
+      <WhyChooseUs/>
+
     </>
   );
 }

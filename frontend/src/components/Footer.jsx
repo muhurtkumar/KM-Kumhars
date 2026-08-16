@@ -1,10 +1,10 @@
 import React from "react";
 
 const navItems = [
-  ["Homepage", "#home"],
-  ["About Us", "#about"],
-  ["Services", "#services"],
-  ["Project", "#projects"],
+  ["Homepage", "/"],
+  ["About Us", "/about"],
+  ["Services", "/services"],
+  ["Project", "/projects"],
 ];
 
 const Footer = () => {
@@ -21,7 +21,7 @@ const Footer = () => {
               Let&apos;s Design Your Next Space Together
             </h2>
             <a
-              href="#contact"
+              href="/contact"
               className="relative mt-8 flex h-18.25 w-47.5 shrink-0 items-center justify-center overflow-hidden text-[15px] font-semibold uppercase tracking-[1.5px]"
             >
               <button
@@ -75,7 +75,6 @@ const Footer = () => {
                 </a>
               </div>
             </section>
-
             <nav aria-label="Footer navigation">
               <FooterTitle>Navigation</FooterTitle>
               <ul className="space-y-3.5 text-[17px]">
