@@ -23,7 +23,7 @@ export default function AboutSection() {
         </div>
 
         <div className="min-w-0 w-full">
-          <p className="mb-3 text-[20px] font-black uppercase tracking-[0.35em] text-[#757575]">
+          <p className="mt-3 mb-3 text-[20px] font-black uppercase tracking-[0.35em] text-[#757575]">
             Who we are
           </p>
 
