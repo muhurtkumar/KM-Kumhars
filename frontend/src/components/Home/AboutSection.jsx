@@ -23,15 +23,15 @@ export default function AboutSection() {
         </div>
 
         <div className="min-w-0 w-full">
-          <p className="mt-3 mb-3 text-[20px] font-black uppercase tracking-[0.35em] text-[#757575]">
+          <p className="mt-4 mb-3 text-[20px] font-black uppercase tracking-[0.35em] text-[#757575]">
             Who we are
           </p>
 
-          <h2 className="max-w-[655px] text-4xl font-black uppercase leading-tight tracking-[0.07em] text-[#1b1717] lg:text-[40px] max-lg:max-w-none">
+          <h2 className="max-w-[655px] text-[25px] font-black uppercase leading-tight tracking-[0.07em] text-[#1b1717] sm:text-[38px] lg:text-[35px] max-lg:max-w-none">
             Creating spaces that reflect your vision
           </h2>
 
-          <div className="mt-9 max-w-[655px] space-y-4 text-[17px] leading-relaxed text-[#6e6e6e] max-lg:max-w-none">
+          <div className="mt-6 max-w-[655px] space-y-4 text-[14px] leading-relaxed text-[#6e6e6e] max-lg:max-w-none sm:text-[16px] lg:text-[17px]">
             <p>
               Whether it's a dream home, a contemporary office, or a
               sophisticated retail space, we transform ideas into thoughtfully
@@ -50,7 +50,7 @@ export default function AboutSection() {
             {benefits.map((benefit) => (
               <li
                 key={benefit}
-                className="flex items-center gap-3 text-[17px] text-[#6e6e6e]"
+                className="flex items-center gap-3 text-[14px] text-[#6e6e6e] sm:text-[16px] lg:text-[17px]"
               >
                 <CheckCircle
                   size={20}
