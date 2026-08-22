@@ -31,7 +31,7 @@ export default function HowWeWork() {
               <img
                 src={howWeWorkImage}
                 alt="Modern interior space designed by KM Kumhars Design Studio"
-                className="h-[280px] w-full object-cover object-center transition-transform duration-500 ease-out hover:scale-[1.04] sm:h-[340px] md:h-[450px]"
+                className="h-[280px] w-full object-cover object-center transition-transform duration-500 ease-out hover:scale-[1.04] sm:h-[340px] md:h-[550px]"
               />
             </div>
 
