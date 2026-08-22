@@ -17,7 +17,7 @@ const TRUST_POINTS = [
 
 export default function TrustUsNow() {
   return (
-    <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
+    <section className="w-full bg-white py-7 sm:py-10 lg:py-15">
       <div
         className="
           mx-auto
@@ -45,17 +45,22 @@ export default function TrustUsNow() {
               hidden
               lg:block
               lg:self-stretch
+              overflow-hidden
             "
           >
             <img
               src={trustUsImage}
               alt="Interior design materials and mood board"
               className="
-                h-full
+                h-auto
                 min-h-[470px]
                 w-full
                 object-cover
                 object-center
+                transition-transform 
+                duration-500 
+                ease-out 
+                hover:scale-[1.04]
               "
             />
           </div>
@@ -130,7 +135,7 @@ export default function TrustUsNow() {
                 mt-8
                 max-w-[620px]
                 font-[Poppins]
-                text-[25px]
+                text-[13px]
                 leading-[1.6]
                 text-[#000000]
                 sm:text-[15px]
