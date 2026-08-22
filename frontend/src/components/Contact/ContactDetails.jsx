@@ -18,7 +18,7 @@ const ContactDetails = () => {
       </div>
 
       {/* Studio Details */}
-      <div className="w-full rounded-xl bg-[#3d4d13] px-6 py-7 text-white sm:px-7 sm:py-8 lg:px-8 lg:py-9">
+      <div className="w-full rounded-xl bg-[#3d4d13] px-6 py-7 text-white sm:px-7 sm:py-8 lg:px-8 lg:py-9 ">
         <h3 className="mb-6 font-['Poppins'] text-[14px] font-bold uppercase tracking-[0.08em] text-white sm:text-[15px] md:text-[16px] lg:text-[16px]">
           Studio Details
         </h3>

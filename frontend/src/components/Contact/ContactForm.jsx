@@ -107,9 +107,13 @@ const ContactForm = () => {
         {/* Submit */}
         <button
           type="submit"
-          className="h-10 w-full rounded-[3px] bg-[#3d4d13] px-4 font-['Poppins'] text-[12px] font-bold uppercase tracking-[0.06em] text-white transition hover:bg-[#7F803F] sm:h-11 sm:text-[13px]"
+          className="group relative flex h-10 w-full items-center justify-center overflow-hidden rounded-[3px] bg-[#87864E] px-4 font-['Poppins'] text-[14px] font-bold uppercase tracking-[2px] text-white sm:h-11 sm:text-[15px]"
         >
-          Send Message
+          {/* Sliding Background */}
+          <span className="absolute inset-0 origin-left scale-x-0 bg-[#6f6e3f] transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+
+          {/* Button Text */}
+          <span className="relative z-10">Send Message</span>
         </button>
       </form>
     </div>

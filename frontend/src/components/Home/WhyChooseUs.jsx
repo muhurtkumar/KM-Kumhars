@@ -1,5 +1,5 @@
 import React from "react";
-import WhyChooseUsImg from "../../assets/Hero/WhyChooseUs.png"
+import WhyChooseUsImg from "../../assets/Hero/WhyChooseUs.png";
 
 const features = [
   "On-time delivery — projects completed within agreed timelines",
@@ -9,50 +9,59 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section className="w-full bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-10 px-5 sm:px-8 lg:grid-cols-2 lg:gap-12 lg:px-10">
+    <section className="w-full bg-white py-12 sm:py-16 lg:py-20">
+      <div className="mx-auto grid w-full max-w-[1340px] items-center gap-10 px-5 sm:px-8 lg:grid-cols-[0.85fr_1.15fr] lg:gap-[44px] lg:px-10">
         
         {/* Image */}
-        <div className="relative w-full overflow-hidden">
-          <div className="relative aspect-[1.47/1] w-full">
+        <div className="h-full w-full min-w-0 overflow-hidden">
+          <div className="relative aspect-[1.47/1] w-full lg:h-full lg:aspect-auto">
             <img
               src={WhyChooseUsImg}
               alt="Interior design project"
-              className="absolute inset-0 h-full w-full object-cover"
+              className="absolute inset-0 h-full w-full object-cover lg:relative lg:h-full lg:w-full"
             />
           </div>
         </div>
 
         {/* Content */}
-        <div className="w-full">
-          <p className="mb-4 text-[12px] font-black uppercase tracking-[0.1em] text-[#757575] sm:text-[17px]">
+        <div className="min-w-0 w-full">
+          
+          {/* Small Heading */}
+          <p className="mb-3 text-[14px] font-black uppercase tracking-[0.15em] text-[#757575] sm:text-[15px] lg:text-[16px]">
             Trust Us Now
           </p>
 
-          <h2 className="max-w-[680px]  text-[25px] font-black uppercase leading-tight tracking-[0.05em] text-[#1B1717] sm:text-[38px] lg:text-[35px]">
+          {/* Main Heading */}
+          <h2 className="max-w-[700px] text-[28px] font-black uppercase leading-[1.15] tracking-[0.04em] text-[#1B1717] sm:text-[34px] md:text-[38px] lg:text-[40px]">
             Why Choose Our Design Interior Services
           </h2>
 
-          <p className="mt-7 max-w-[655px] text-[14px] font-normal leading-[1.7] text-[#6E6E6E] sm:text-[16px] lg:text-[17px]">
-            From concept to final styling, every project is guided by careful
-            planning and precise execution — so your space works as beautifully
-            as it looks.
-          </p>
+          {/* Description */}
+          <div className="mt-6 max-w-[700px] space-y-4 text-[14px] leading-[1.7] text-[#6E6E6E] sm:mt-7 sm:text-[16px] lg:mt-8 lg:text-[17px]">
+            <p>
+              From concept to final styling, every project is guided by
+              careful planning and precise execution — so your space works as
+              beautifully as it looks.
+            </p>
+          </div>
 
-          <ul className="mt-8 space-y-4">
+          {/* Features */}
+          <ul className="mt-8 grid gap-x-8 gap-y-5 sm:mt-9">
             {features.map((feature) => (
               <li
                 key={feature}
-                className="flex items-start gap-4 text-[14px] font-normal leading-[1.5] text-[#6E6E6E] sm:text-[16px] lg:text-[17px]"
+                className="flex min-w-0 items-start gap-3 text-[14px] leading-[1.6] text-[#6E6E6E] sm:gap-4 sm:text-[16px] lg:text-[17px]"
               >
                 <span
-                  className="mt-[2px] flex shrink-0 h-5 w-5 items-center justify-center rounded-full bg-[#527e30] text-[12px] font-bold text-white"
+                  className="mt-[3px] flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#527E30] text-[11px] font-bold text-white sm:h-[21px] sm:w-[21px] sm:text-[12px]"
                   aria-hidden="true"
                 >
                   ✓
                 </span>
 
-                <span>{feature}</span>
+                <span className="min-w-0">
+                  {feature}
+                </span>
               </li>
             ))}
           </ul>
