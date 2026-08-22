@@ -26,9 +26,13 @@ const Footer = () => {
             >
               <button
                 type="submit"
-                className="h-16.25 w-full rounded-md  bg-[#87864E] text-[15px] font-semibold uppercase tracking-[1.5px] text-white transition hover:bg-[#979663] sm:w-49.5"
+                className="group relative flex h-40.25 w-full items-center justify-center overflow-hidden rounded-md bg-[#87864E] px-4 font-['Poppins'] text-[15px] font-semibold uppercase tracking-[2px] text-white sm:w-49.5"
               >
-                Contact Us
+                {/* Sliding Background */}
+                <span className="absolute inset-0 origin-left scale-x-0 bg-[#919064] transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+
+                {/* Button Text */}
+                <span className="relative z-10">Contact Us</span>
               </button>
             </a>
           </div>
@@ -129,9 +133,13 @@ const Footer = () => {
                 {/* Subscribe button */}
                 <button
                   type="submit"
-                  className="h-16.25 w-40 rounded-md bg-[#87864E] text-[15px] font-semibold uppercase tracking-[1.5px] text-white transition hover:bg-[#636139] sm:w-49.5"
+                  className="group relative flex h-16.25 w-40 items-center justify-center overflow-hidden rounded-md bg-[#87864E] px-4 font-['Poppins'] text-[15px] font-semibold uppercase tracking-[2px] text-white sm:w-49.5"
                 >
-                  Subscribe
+                  {/* Sliding Background */}
+                  <span className="absolute inset-0 origin-left scale-x-0 bg-[#6f6e3f] transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+
+                  {/* Button Text */}
+                  <span className="relative z-10">Subscribe</span>
                 </button>
               </form>
             </section>

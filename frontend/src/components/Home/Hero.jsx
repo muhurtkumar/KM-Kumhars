@@ -51,7 +51,7 @@ export default function Hero() {
                 group relative mt-8 inline-flex h-[64px] w-[185px]
                 items-center justify-center overflow-hidden rounded-lg
                 bg-[#87864E] text-white uppercase tracking-[2px]
-                font-semibold cursor-pointer
+                font-semibold cursor-pointer font-['Poppins']
                 max-md:mt-6
                 max-md:h-[52px]
                 max-md:w-[160px]
