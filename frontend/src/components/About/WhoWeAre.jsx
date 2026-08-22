@@ -13,7 +13,6 @@ export default function WhoWeAre() {
   return (
     <section className="w-full bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28 px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20">
       <div className="mx-auto max-w-[1395px]">
-
         {/* MOBILE + TABLET HEADING */}
         <div className="mb-8 lg:hidden">
           <p className="font-[Poppins] text-[11px] font-bold uppercase tracking-wide text-[#707070] sm:text-xs">
@@ -25,24 +24,24 @@ export default function WhoWeAre() {
         </div>
 
         <div className="flex flex-col gap-8 lg:grid lg:grid-cols-2 lg:items-stretch lg:gap-14 xl:gap-16">
-
-          {/* IMAGE */}
-          <div className="w-full overflow-hidden">
-            <img
-              src={whoWeAreImage}
-              alt="Modern interior designed by KM Kumhars Design Studio"
-              className="
-                aspect-[16/11]
-                w-full
-                object-cover
-                transition-transform duration-500 ease-out hover:scale-[1.04]
-                sm:aspect-[16/10]
-                md:aspect-[16/9]
-                lg:aspect-auto lg:h-[520px]
-                xl:h-[560px]
-              "
-            />
-          </div>
+          {/* IMAGE — grid item: NO h-full here, just overflow-hidden. Stretch is automatic. */}
+          <div
+  className="
+    relative w-full overflow-hidden
+    aspect-[16/11] sm:aspect-[16/10] md:aspect-[16/11]
+    lg:aspect-auto lg:h-auto
+  "
+>
+  <img
+    src={whoWeAreImage}
+    alt="Modern interior designed by KM Kumhars Design Studio"
+    className="
+      w-full h-full object-cover
+      transition-transform duration-500 ease-out hover:scale-[1.04]
+      lg:absolute lg:inset-0
+    "
+  />
+</div>
 
           {/* CONTENT */}
           <div className="w-full">
@@ -60,28 +59,29 @@ export default function WhoWeAre() {
               Kumhars Design Studio brings together architecture, interiors, and
               styling under one roof. We work closely with every client — from
               homeowners to businesses — to understand not just what a space
-              should look like, but how it should feel to live and work in. Every
-              project starts with listening, because the best interiors are never
-              just designed — they&apos;re discovered together.
+              should look like, but how it should feel to live and work in.
+              Every project starts with listening, because the best interiors
+              are never just designed — they&apos;re discovered together.
             </p>
 
             <div className="mt-5 flex flex-col gap-3">
-              {["Flexible Time", "Perfect Work", "Client Priority"].map((item) => (
-                <div key={item} className="flex items-center gap-3">
-                  <span
-                    aria-hidden="true"
-                    className="flex h-3 w-3 shrink-0 items-center justify-center rounded-full bg-[#45B85A] text-[8px] font-bold leading-none text-white sm:h-[13px] sm:w-[13px]"
-                  >
-                    ✓
-                  </span>
-                  <span className="font-[Poppins] text-[12px] font-normal text-[#000000] sm:text-[13px]">
-                    {item}
-                  </span>
-                </div>
-              ))}
+              {["Flexible Time", "Perfect Work", "Client Priority"].map(
+                (item) => (
+                  <div key={item} className="flex items-center gap-3">
+                    <span
+                      aria-hidden="true"
+                      className="flex h-3 w-3 shrink-0 items-center justify-center rounded-full bg-[#45B85A] text-[8px] font-bold leading-none text-white sm:h-[13px] sm:w-[13px]"
+                    >
+                      ✓
+                    </span>
+                    <span className="font-[Poppins] text-[12px] font-normal text-[#000000] sm:text-[13px]">
+                      {item}
+                    </span>
+                  </div>
+                ),
+              )}
             </div>
 
-            {/* Statistics — react-countup, triggers on scroll */}
             <div className="mt-8 grid grid-cols-3 gap-4 sm:mt-10 sm:gap-8">
               {STATS.map((stat) => (
                 <div key={stat.label} className="text-center">
