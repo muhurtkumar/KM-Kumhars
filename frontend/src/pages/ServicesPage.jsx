@@ -1,11 +1,11 @@
-import Hero from "../components/Home/Hero";
+import ServiceHero from "../components/Service/ServiceHero";
 
-const Home = () => {
+const ServicesPage = () => {
   return (
     <main>
-      <Hero />
+      <ServiceHero />
     </main>
   );
 };
 
-export default Home;
+export default ServicesPage;

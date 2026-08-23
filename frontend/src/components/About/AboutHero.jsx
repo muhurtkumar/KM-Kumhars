@@ -26,7 +26,7 @@ export default function AboutHero() {
             </h1>
 
             {/* Page introduction */}
-            <p className="mt-4 max-w-[690px] font-[Poppins] text-[13px] font-medium leading-[1.6] text-[#000000] sm:mt-5 sm:text-[14px] md:text-[15px] lg:text-[20px]">
+            <p className="mt-4 max-w-[690px] font-[Poppins] text-[13px] font-medium leading-[1.6] text-[#3F3F3F] sm:mt-5 sm:text-[14px] md:text-[16px] lg:text-[17px]">
               We are a design studio dedicated to creating interiors that are as
               functional as they are beautiful — for homes, offices, and
               everything in between.

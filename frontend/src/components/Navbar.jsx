@@ -73,6 +73,7 @@ export default function Navbar() {
           </span>
         </a>
 
+
         {/* ================= DESKTOP NAV ================= */}
         {/* Desktop navigation starts at lg (1024px) */}
         <ul className="m-0 hidden list-none items-center gap-5 p-0 lg:flex lg:gap-6 xl:gap-9">
@@ -81,18 +82,21 @@ export default function Navbar() {
             <li
               key={link.label}
               className="relative"
+
               onMouseEnter={() => {
                 if (link.dropdown) {
                   setDropdownOpen(link.label);
                 }
               }}
+
               onMouseLeave={() => {
                 if (link.dropdown) {
                   setDropdownOpen(null);
                 }
               }}
             >
-              {/* Main Nav Link */}
+
+              {/* ================= DESKTOP MAIN NAV LINK ================= */}
               <a
                 href={link.href}
                 className="flex items-center gap-1 text-[12px] font-bold uppercase tracking-wide text-[#1C1C1A] no-underline transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1C1C1A] lg:text-[13px]"
@@ -107,10 +111,12 @@ export default function Navbar() {
                 )}
               </a>
 
+
               {/* ================= DESKTOP DROPDOWN ================= */}
               {link.dropdown &&
                 dropdownOpen === link.label && (
                   <ul className="absolute left-0 top-full m-0 min-w-52.5 list-none bg-[#EFEDE4] py-2 pt-4 shadow-lg">
+
                     {link.dropdown.map((item) => (
                       <li key={item}>
                         <a
@@ -121,12 +127,14 @@ export default function Navbar() {
                         </a>
                       </li>
                     ))}
+
                   </ul>
                 )}
             </li>
           ))}
 
-          {/* ================= SEARCH ================= */}
+
+          {/* ================= DESKTOP SEARCH ================= */}
           <li className="relative">
 
             {!searchOpen ? (
@@ -142,10 +150,12 @@ export default function Navbar() {
                 />
               </button>
             ) : (
+
               <form
                 onSubmit={handleSearch}
                 className="flex items-center border-b border-[#1C1C1A] bg-transparent"
               >
+
                 <Search
                   size={17}
                   strokeWidth={2}
@@ -174,10 +184,13 @@ export default function Navbar() {
                 >
                   <X size={14} />
                 </button>
+
               </form>
             )}
+
           </li>
         </ul>
+
 
         {/* ================= MOBILE / TABLET HAMBURGER ================= */}
         <button
@@ -186,13 +199,17 @@ export default function Navbar() {
           onClick={() => setMobileOpen(!mobileOpen)}
           className="flex h-9 w-11 shrink-0 cursor-pointer items-center justify-center border-none bg-[#1C1C1A] text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#1C1C1A] sm:h-10 sm:w-12 lg:hidden"
         >
+
           {mobileOpen ? (
             <X size={20} />
           ) : (
             <Menu size={20} />
           )}
+
         </button>
+
       </div>
+
 
       {/* ================= MOBILE / TABLET MENU ================= */}
       {mobileOpen && (
@@ -203,6 +220,7 @@ export default function Navbar() {
             onSubmit={handleSearch}
             className="mb-4 flex items-center border-b border-[#1C1C1A]/40 pb-2"
           >
+
             <Search
               size={18}
               strokeWidth={2}
@@ -218,50 +236,87 @@ export default function Navbar() {
               placeholder="Search"
               className="w-full bg-transparent text-[13px] text-[#1C1C1A] outline-none placeholder:text-[#1C1C1A]/60"
             />
+
           </form>
+
 
           {/* ================= MOBILE NAV ================= */}
           <ul className="m-0 grid list-none grid-cols-1 gap-x-6 gap-y-1 p-0 sm:grid-cols-1">
 
             {NAV_LINKS.map((link) =>
               link.dropdown ? (
+
                 <li
                   key={link.label}
                   className="border-b border-black/5 sm:border-none"
                 >
-                  {/* Mobile Dropdown Button */}
-                  <button
-                    type="button"
-                    onClick={() =>
-                      setOpenMobileDropdown((current) =>
-                        current === link.label
-                          ? null
-                          : link.label
-                      )
-                    }
-                    aria-expanded={
-                      openMobileDropdown === link.label
-                    }
-                    className="flex w-full cursor-pointer items-center justify-between border-none bg-transparent py-3 text-[13px] font-bold uppercase tracking-wide text-[#1C1C1A] sm:text-[15px]"
-                  >
-                    {link.label}
 
-                    <ChevronDown
-                      size={14}
-                      strokeWidth={2.5}
-                      className={`transition-transform duration-200 ${
+                  {/* ================= MOBILE NAV HEADER ================= */}
+                  <div className="flex w-full items-center justify-between">
+
+                    {/* 
+                      MAIN LINK
+
+                      Clicking the text will directly open:
+                      /services
+                      /projects
+                    */}
+                    <a
+                      href={link.href}
+                      onClick={() => {
+                        setMobileOpen(false);
+                        setOpenMobileDropdown(null);
+                      }}
+                      className="flex-1 py-3 text-[13px] font-bold uppercase tracking-wide text-[#1C1C1A] no-underline sm:text-[15px]"
+                    >
+                      {link.label}
+                    </a>
+
+
+                    {/* 
+                      DROPDOWN BUTTON
+
+                      Clicking only the arrow opens/closes
+                      the dropdown.
+                    */}
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setOpenMobileDropdown((current) =>
+                          current === link.label
+                            ? null
+                            : link.label
+                        )
+                      }
+                      aria-label={`Open ${link.label} dropdown`}
+                      aria-expanded={
                         openMobileDropdown === link.label
-                          ? "rotate-180"
-                          : ""
-                      }`}
-                    />
-                  </button>
+                      }
+                      className="flex cursor-pointer items-center border-none bg-transparent px-2 py-3 text-[#1C1C1A]"
+                    >
 
-                  {/* Mobile Dropdown */}
+                      <ChevronDown
+                        size={14}
+                        strokeWidth={2.5}
+                        className={`transition-transform duration-200 ${
+                          openMobileDropdown === link.label
+                            ? "rotate-180"
+                            : ""
+                        }`}
+                      />
+
+                    </button>
+
+                  </div>
+
+
+                  {/* ================= MOBILE DROPDOWN ================= */}
                   {openMobileDropdown === link.label && (
                     <ul className="m-0 flex list-none flex-col gap-2 pb-3 pl-3">
+
                       {link.dropdown.map((item) => (
                         <li key={item}>
+
                           <a
                             href="#"
                             onClick={() => {
@@ -272,16 +327,22 @@ export default function Navbar() {
                           >
                             {item}
                           </a>
+
                         </li>
                       ))}
+
                     </ul>
                   )}
+
                 </li>
+
               ) : (
+
                 <li
                   key={link.label}
                   className="border-b border-black/5 sm:border-none"
                 >
+
                   <a
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
@@ -289,13 +350,17 @@ export default function Navbar() {
                   >
                     {link.label}
                   </a>
+
                 </li>
+
               )
             )}
 
           </ul>
+
         </div>
       )}
+
     </nav>
   );
 }
