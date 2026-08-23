@@ -74,7 +74,7 @@ export default function TrustUsNow() {
             <p
               className="
                 font-[Poppins]
-                text-[20px]
+                text-[11px]
                 font-bold
                 uppercase
                 tracking-wide
