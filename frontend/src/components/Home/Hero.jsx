@@ -23,10 +23,10 @@ export default function Hero() {
 
         {/* Content */}
         <div className="absolute left-0 top-0 z-10 flex h-full w-[55%] pt-[40px] max-md:relative max-md:left-auto max-md:top-auto max-md:order-1 max-md:h-auto max-md:w-full max-md:pt-8">
-          <div className=" max-w-[560px] pl-16 max-md:max-w-none max-md:px-6">
+          <div className="max-w-[545px] pl-12 max-lg:pl-8 max-md:max-w-none max-md:px-6">
             {/* Small Heading */}
             <p
-              className="uppercase tracking-[3px] font-bold text-[#5D5A42] max-md:text-[12px] max-md:tracking-[2px]"
+              className="uppercase tracking-[3px] font-bold font-[Poppins] text-[#5D5A42] max-md:text-[12px] max-md:tracking-[2px]"
             >
               Welcome To Kumhars
             </p>
@@ -41,20 +41,18 @@ export default function Hero() {
             </h1>
 
             {/* Description */}
-            <p className="mt-8 text-[18px] leading-9 text-[#555] max-md:mt-5 max-md:text-[15px] max-md:leading-7">
+            <p className="mt-8 text-[13px] font-[Poppins] leading-9 text-[#555] max-md:mt-5 md:text-[15px] lg:text-[18px] max-md:leading-7">
               We craft interiors where thoughtful design meets everyday living — spaces shaped by light, texture, and intention, built to feel effortless for years to come.
             </p>
 
             {/* Button */}
             <button
               className="
-                group relative mt-8 inline-flex h-[64px] w-[185px]
+                group relative mt-8 inline-flex h-[46px] w-[132px] md:h-[62px] md:w-[198px]
                 items-center justify-center overflow-hidden rounded-lg
                 bg-[#87864E] text-white uppercase tracking-[2px]
                 font-semibold cursor-pointer font-['Poppins']
                 max-md:mt-6
-                max-md:h-[52px]
-                max-md:w-[160px]
                 max-md:text-[12px]
                 max-md:tracking-[1.5px]
               "

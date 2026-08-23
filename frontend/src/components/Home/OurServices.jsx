@@ -61,7 +61,7 @@ export default function OurServices() {
           Design Solutions For Every Space   
         </h2>   
    
-        <p className="mt-3 max-w-[1050px] text-[14px] leading-6 text-[#777] md:text-[16px] lg:text-[17px]">   
+        <p className="mt-3 max-w-[1050px] text-[13px] leading-6 text-[#777] sm:text-[14px] md:text-[15px] lg:text-[16px]">   
           From concept to completion, we create thoughtfully designed spaces   
           tailored to your lifestyle, business, and vision.   
         </p>   
@@ -101,7 +101,7 @@ export default function OurServices() {
    
                   {/* Explore Service */}  
                   <div className="mt-2 flex items-center gap-3">  
-                    <span className="text-[12px] font-medium uppercase tracking-[0.08em] text-white">  
+                    <span className="border-b border-white pb-1 text-[12px] font-medium uppercase tracking-[0.08em] text-white">  
                       Explore Service  
                     </span>  
    
