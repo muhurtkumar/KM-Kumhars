@@ -17,6 +17,7 @@ const NAV_LINKS = [
       "Commercial",
       "Interior Decor & Styling",
       "Space Planning",
+      "Retail & Hospitality Design",
       "Design Consultation",
       "Custom Furniture Design",
     ],
