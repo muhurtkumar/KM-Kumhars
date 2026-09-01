@@ -47,26 +47,26 @@ export default function WorkingProcess() {
 
         {/* Header */}
         <div>
-          <p className="text-[15px] font-black uppercase tracking-[0.18em] text-[#757575]">
+          <p className="text-[15px] font-black uppercase tracking-[0.18em] text-[#757575] font-[Poppins]">
             How We Work
           </p>
 
-          <h2 className="mt-3 font-sans text-[25px] font-black uppercase leading-tight tracking-[0.03em] text-[#1b1717] sm:text-[38px] lg:whitespace-nowrap lg:text-[35px]">
+          <h2 className="mt-3 font-[Poppins] text-[25px] font-black uppercase leading-tight tracking-[0.03em] text-[#1b1717] sm:text-[38px] lg:whitespace-nowrap lg:text-[35px]">
             A Seamless Journey From Vision To Reality
           </h2>
 
-          <p className="mt-3 max-w-[1050px] text-[14px] leading-6 text-[#777] sm:text-[16px] lg:text-[17px]">
+          <p className="mt-3 max-w-[1100px] text-[13px] leading-6 text-[#777] sm:text-[14px] md:text-[15px] lg:text-[16px] font-[Poppins]">
             From first conversation to final walkthrough, every project follows a clear path built on collaboration, precision, and care for detail.
           </p>
         </div>
 
         {/* Process Steps */}
-        <div className="relative mt-10 md:mt-12">
+        <div className="relative mt-7 md:mt-12">
 
           {/* Connecting Line - Desktop */}
           <div className="absolute left-[8%] right-[8%] top-[13px] hidden h-[1px] bg-[#87864E]/50 lg:block"></div>
 
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-6 lg:gap-0">
+          <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-6 lg:gap-0">
             {steps.map((step) => {
               const Icon = step.icon;
 
@@ -79,16 +79,16 @@ export default function WorkingProcess() {
                   <div className="flex shrink-0 flex-row items-center gap-3 lg:flex-col lg:items-center lg:gap-0">
 
                     {/* Number */}
-                    <span className="order-1 mb-0 text-[24px] font-black leading-none text-[#87864E] lg:order-1 lg:mb-4 lg:text-[24px]">
+                    <span className="order-1 mb-0 text-[20px] font-black leading-none  text-[#87864E] lg:order-1 lg:mb-4 lg:text-[24px]">
                       {step.number}
                     </span>
 
                     {/* Icon */}
-                    <div className="order-2 relative z-10 flex h-[52px] w-[52px] shrink-0 items-center justify-center rounded-full bg-[#87864E] text-white lg:order-2 lg:h-[55px] lg:w-[55px]">
+                    <div className="order-2 relative z-10 flex h-[40px] w-[40px] shrink-0 items-center justify-center rounded-full bg-[#87864E] text-white lg:order-2 md:h-[50px] md:w-[50px] lg:h-[55px] lg:w-[55px]">
                       <img
                         src={Icon}
                         alt={step.title}
-                        className={`h-[48px] w-[48px] object-contain ${
+                        className={`h-[35px] w-[35px] lg:h-[48px] lg:w-[48px] object-contain ${
                           step.number === "06" ? "scale-125" :
                           step.number === "04" ? "scale-90" : ""
                         }`}
@@ -97,7 +97,7 @@ export default function WorkingProcess() {
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-[18px] font-bold text-[#191919] lg:mt-5 lg:text-center lg:text-[18px]">
+                  <h3 className="text-[15px] font-bold text-[#191919] lg:mt-5 lg:text-center lg:text-[18px] font-[Poppins]">
                     {step.title}
                   </h3>
                 </div>
@@ -110,11 +110,11 @@ export default function WorkingProcess() {
         
           {/* Left */} 
           <div className="flex items-center gap-5"> 
-            <div className="flex h-[68px] w-[68px] shrink-0 items-center justify-center rounded-full border border-[#191919] text-[#87864E]"> 
-              <FileText size={37} strokeWidth={1.5} /> 
+            <div className="flex h-[50px] w-[50px] md:h-[68px] md:w-[68px] shrink-0 items-center justify-center rounded-full border border-[#191919] text-[#87864E]"> 
+              <FileText size={32} md:size={37} strokeWidth={1.5} /> 
             </div> 
         
-            <div className="font-serif text-[16px] italic leading-7 text-[#191919] md:text-[17px]"> 
+            <div className="font-serif text-[14px] italic leading-7 text-[#191919] md:text-[17px]"> 
               <p className="font-bold"> 
                 A thoughtful process. 
               </p> 
