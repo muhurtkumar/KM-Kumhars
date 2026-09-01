@@ -53,7 +53,7 @@ const services = [
 
 const ServicesList = () => {
   return (
-    <section className="relative z-10 -mt-[36px] px-4 sm:-mt-[56px] sm:px-6 lg:-mt-[80px] lg:px-8">
+    <section className="relative z-10 -mt-[36px] px-4 sm:-mt-[56px] sm:px-6 lg:-mt-[80px] lg:px-8  font-[Poppins]">
       <div
         className="
           mx-auto
@@ -176,7 +176,7 @@ const ServicesList = () => {
                 } ${isLastFullRowItem ? "border-b border-[#858585]" : ""}`}
               >
                 {/* Number */}
-                <span className="mb-2 text-[17px] font-bold leading-none text-[#66643b]">
+                <span className="mb-2 text-[17px] font-extrabold leading-none text-[#66643b]">
                   {service.number}
                 </span>
 
@@ -210,7 +210,7 @@ const ServicesList = () => {
               return (
                 <div key={service.number} className="col-span-2 flex justify-center pt-8">
                   <div className="flex w-1/2 flex-col items-center justify-start px-2 text-center">
-                    <span className="mb-2 text-[16px] font-bold leading-none text-[#66643b]">
+                    <span className="mb-2 text-[16px] font-extrabold leading-none text-[#66643b]">
                       {service.number}
                     </span>
                     <div className="mb-3 flex h-[64px] w-[80px] items-center justify-center">
@@ -237,7 +237,7 @@ const ServicesList = () => {
                 } ${isFullRowItem ? "border-b border-[#858585]" : ""}`}
               >
                 {/* Number */}
-                <span className="mb-2 text-[16px] font-bold leading-none text-[#66643b]">
+                <span className="mb-2 text-[16px] font-extrabold leading-none text-[#66643b]">
                   {service.number}
                 </span>
 
@@ -251,7 +251,7 @@ const ServicesList = () => {
                 </div>
 
                 {/* Text */}
-                <div className="text-[12px] font-medium leading-[1.4] text-[#171717]">
+                <div className="text-[12px] font-medium leading-[1.4] text-[#171717] tracking-normal">
                   <p>{service.title}</p>
                   <p>{service.subtitle}</p>
                 </div>
