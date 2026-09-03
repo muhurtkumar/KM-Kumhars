@@ -24,7 +24,7 @@ const FAQ_DATA = [
   },
 ];
 
-export default function FAQ() {
+export default function FAQs() {
   const [openIndex, setOpenIndex] = useState(0);
 
   const toggleFAQ = (index) => {
@@ -201,29 +201,26 @@ export default function FAQ() {
             Still have questions?
           </p>
 
-          <button
-            type="button"
-            className="
-              rounded-md
-              bg-[#8A8C4D]
-              px-6
-              py-3
-              font-[Poppins]
-              text-[9px]
-              font-bold
-              uppercase
-              tracking-wide
-              text-white
-              transition
-              duration-300
-              hover:bg-[#263900]
-              lg:px-7
-              lg:py-3.5
-              lg:text-[12px]
-            "
-          >
-            SEND MESSAGE
-          </button>
+          <a
+          href="/contact"
+          className="
+            w-fit
+            rounded-[4px]
+            bg-[#66643b]
+            px-6
+            py-2.5
+            text-[12px]
+            font-semibold
+            uppercase
+            tracking-wider
+            text-white
+            transition
+            duration-300
+            hover:bg-[#54522f]
+          "
+        >
+          SEND MESSAGE
+        </a>
         </div>
 
       </div>

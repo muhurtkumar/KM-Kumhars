@@ -187,7 +187,7 @@ const ServiceDetailList = () => {
           <div className="mt-5 h-px w-[110px] bg-[#171717]/40" />
         </div>
 
-        <div className="flex flex-col gap-4 sm:gap-5">
+        <div className="flex flex-col gap-6 sm:gap-8 lg:gap-10">
           {services.map((service, index) => (
             <ServiceRow
               key={service.number}

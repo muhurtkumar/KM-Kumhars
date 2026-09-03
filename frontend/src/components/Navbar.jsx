@@ -55,7 +55,7 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="relative z-50 w-full bg-[#F7F6F2] text-[#1C1C1A]">
+    <nav className="sticky top-0 relative z-50 w-full bg-[#F7F6F2] text-[#1C1C1A] font-[Poppins]">
 
       {/* ================= HEADER ================= */}
       <div className="flex w-full items-center justify-between px-6 py-6 sm:px-8 lg:px-10 lg:py-7 xl:px-16">
