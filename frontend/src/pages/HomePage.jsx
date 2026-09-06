@@ -5,6 +5,7 @@ import Stats from "../components/Home/Stats";
 import WorkingProcess from "../components/Home/WorkingProcess";
 import OurServices from "../components/Home/OurServices";
 import PerfectPartner from "../components/Home/PerfectPartner";
+import Testimonials from "../components/Home/Testimonials";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <OurServices />
       <PerfectPartner />
       <WhyChooseUs />
+      <Testimonials />
     </main>
   );
 };
