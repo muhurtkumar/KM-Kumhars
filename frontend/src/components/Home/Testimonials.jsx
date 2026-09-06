@@ -66,7 +66,7 @@ export default function Testimonials() {
         `}
       </style>
 
-      <div className="mx-auto max-w-[1400px] px-6 py-12 sm:px-8 md:px-10 lg:px-[40px] lg:py-[60px]">
+      <div className="mx-auto max-w-[1400px] px-6 py-8 sm:px-8 md:px-10 lg:px-[40px] lg:py-[60px]">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[48%_52%] lg:gap-0">
 
           {/* Left Content */}

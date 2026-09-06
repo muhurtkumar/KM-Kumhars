@@ -139,7 +139,7 @@ export default function PerfectPartner() {
 
             <a
               href="#projects"
-              className="group relative mt-6 inline-flex h-[46px] w-[132px] items-center justify-center gap-5 overflow-hidden rounded-[10px] bg-[#87864E] text-[12px] font-semibold uppercase tracking-[0.1em] text-white sm:text-[16px] md:h-[49px] md:w-[150px] md:text-[13px] font-[Poppins]"
+              className="group relative mt-6 inline-flex h-[46px] w-[132px] items-center justify-center gap-5 overflow-hidden rounded-[10px] bg-[#87864E] text-[12px] font-semibold uppercase tracking-[0.1em] text-white sm:text-[12px] md:h-[49px] md:w-[150px] md:text-[13px] font-[Poppins]"
             >
               <span className="absolute inset-0 origin-left scale-x-0 bg-[#6f6e3f] transition-transform duration-500 ease-out group-hover:scale-x-100" />
               <span className="relative z-10">Our Projects</span>
