@@ -85,7 +85,7 @@ export default function AboutSection() {
 
             <a
               href="#contact"
-              className="group relative mt-8 inline-flex h-[46px] w-[168px] md:h-[62px] md:w-[198px] items-center justify-center overflow-hidden rounded-[10px] bg-[#87864E] text-[15px] sm:text-[16px] lg:text-[17px]font-semibold uppercase tracking-[0.1em] text-white font-[Poppins]"
+              className="group relative mt-8 inline-flex h-[46px] w-[168px] md:h-[62px] md:w-[198px] items-center justify-center overflow-hidden rounded-[10px] bg-[#87864E] text-[15px] sm:text-[16px] lg:text-[16px] font-semibold uppercase tracking-[0.1em] text-white font-[Poppins]"
             >
               <span className="absolute inset-0 origin-left scale-x-0 bg-[#6f6e3f] transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
 

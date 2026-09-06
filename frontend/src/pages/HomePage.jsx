@@ -4,6 +4,7 @@ import WhyChooseUs from "../components/Home/WhyChooseUs";
 import Stats from "../components/Home/Stats";
 import WorkingProcess from "../components/Home/WorkingProcess";
 import OurServices from "../components/Home/OurServices";
+import PerfectPartner from "../components/Home/PerfectPartner";
 
 const Home = () => {
   return (
@@ -13,6 +14,7 @@ const Home = () => {
       <Stats />
       <WorkingProcess />
       <OurServices />
+      <PerfectPartner />
       <WhyChooseUs />
     </main>
   );
