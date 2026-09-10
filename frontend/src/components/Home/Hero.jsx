@@ -46,7 +46,8 @@ export default function Hero() {
             </p>
 
             {/* Button */}
-            <button
+            <a
+              href="/projects"
               className="
                 group relative mt-8 inline-flex h-[46px] w-[132px] md:h-[62px] md:w-[198px]
                 items-center justify-center overflow-hidden rounded-lg
@@ -69,7 +70,7 @@ export default function Hero() {
 
               {/* Text */}
               <span className="relative z-10">Our Projects</span>
-            </button>
+            </a>
           </div>
         </div>
       </div>
