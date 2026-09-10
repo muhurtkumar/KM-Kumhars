@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.3.1",
+    "@sanity/client": "^8.6.1",
+    "@sanity/image-url": "^2.1.1",
     "lucide-react": "^1.30.0",
     "react": "^19.2.8",
     "react-countup": "^6.5.3",
