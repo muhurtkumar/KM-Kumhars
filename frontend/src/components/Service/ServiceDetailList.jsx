@@ -159,7 +159,7 @@ const ServiceRow = ({ service, reverse }) => {
         </ul>
 
         <a
-          href="#contact"
+          href="/contact"
           className="
             w-fit
             rounded-[4px]

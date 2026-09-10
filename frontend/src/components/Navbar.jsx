@@ -231,7 +231,7 @@ export default function Navbar() {
             <button
               type="submit"
               tabIndex={searchOpen ? 0 : -1}
-              className="shrink-0 cursor-pointer border-none bg-[#6B7A3A] px-6 py-2.5 text-[12px] font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-80"
+              className="shrink-0 rounded-md cursor-pointer border-none bg-[#6B7A3A] px-6 py-2.5 text-[12px] font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-80"
             >
               Search
             </button>
