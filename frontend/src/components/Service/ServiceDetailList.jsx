@@ -8,8 +8,11 @@ import retailImg from "../../assets/service/retailImg.png";
 import consultationImg from "../../assets/service/consultationImg.png";
 import furnitureImg from "../../assets/service/furnitureImg.png";
 
+// These ids must match the slugs the Navbar/Footer dropdown links point to
+// (generated from "Residential", "Commercial", "Interior Decor & Styling", etc.)
 const services = [
   {
+    id: "residential",
     number: "01",
     title: "Residential Interiors",
     description:
@@ -23,6 +26,7 @@ const services = [
     image: residentialImg,
   },
   {
+    id: "commercial",
     number: "02",
     title: "Commercial Interiors",
     description:
@@ -36,6 +40,7 @@ const services = [
     image: commercialImg,
   },
   {
+    id: "interior-decor-and-styling",
     number: "03",
     title: "Interior Decor & Styling",
     description:
@@ -49,6 +54,7 @@ const services = [
     image: interiorDecorImg,
   },
   {
+    id: "space-planning",
     number: "04",
     title: "Space Planning",
     description:
@@ -62,6 +68,7 @@ const services = [
     image: spacePlanningImg,
   },
   {
+    id: "retail-and-hospitality-design",
     number: "05",
     title: "Retail Design",
     description:
@@ -75,6 +82,7 @@ const services = [
     image: retailImg,
   },
   {
+    id: "design-consultation",
     number: "06",
     title: "Design Consultation",
     description:
@@ -88,6 +96,7 @@ const services = [
     image: consultationImg,
   },
   {
+    id: "custom-furniture-design",
     number: "07",
     title: "Custom Furniture Design",
     description:
@@ -105,8 +114,9 @@ const services = [
 const ServiceRow = ({ service, reverse }) => {
   return (
     <div
+      id={service.id}
       className={`
-        flex flex-col overflow-hidden rounded-[12px] bg-[#f8f7f3]
+        flex scroll-mt-33 flex-col overflow-hidden rounded-[12px] bg-[#f8f7f3]
         lg:flex-row lg:items-stretch
         ${reverse ? "lg:flex-row-reverse" : ""}
       `}
@@ -149,7 +159,7 @@ const ServiceRow = ({ service, reverse }) => {
         </ul>
 
         <a
-          href="/contact"
+          href="#contact"
           className="
             w-fit
             rounded-[4px]
@@ -174,7 +184,7 @@ const ServiceRow = ({ service, reverse }) => {
 
 const ServiceDetailList = () => {
   return (
-    <section className="px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20  font-[Poppins]">
+    <section className="scroll-mt-28 px-4 py-12 sm:px-6 sm:py-16 lg:px-8 lg:py-20  font-[Poppins]">
       <div className="mx-auto w-full max-w-[1180px]">
         {/* Section heading */}
         <div className="mb-10 sm:mb-12 lg:mb-14">
