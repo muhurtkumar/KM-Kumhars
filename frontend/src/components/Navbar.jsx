@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   ChevronDown,
   Menu,
@@ -6,9 +7,25 @@ import {
   Search,
 } from "lucide-react";
 
+// Turns a label like "Interior Decor & Styling" into "interior-decor-styling"
+// so it always matches the id you put on the section in your page.
+const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
 const NAV_LINKS = [
   { label: "HOME", href: "/" },
-  { label: "ABOUT US", href: "/about" },
+  {
+    label: "ABOUT US",
+    href: "/about",
+    dropdown: ["Who We Are", "Founder's Note"].map((label) => ({
+      label,
+      href: `/about#${slugify(label)}`,
+    })),
+  },
   {
     label: "OUR SERVICES",
     href: "/services",
@@ -20,13 +37,12 @@ const NAV_LINKS = [
       "Retail & Hospitality Design",
       "Design Consultation",
       "Custom Furniture Design",
-    ],
+    ].map((label) => ({
+      label,
+      href: `/services#${slugify(label)}`,
+    })),
   },
-  {
-    label: "OUR PROJECTS",
-    href: "/projects",
-    dropdown: ["Interior Design", "3D & 2D Rendering"],
-  },
+  { label: "OUR PROJECTS", href: "/projects" },
   { label: "CONTACT US", href: "/contact" },
 ];
 
@@ -39,7 +55,8 @@ export default function Navbar() {
   // Mobile dropdown state
   const [openMobileDropdown, setOpenMobileDropdown] = useState(null);
 
-  // Search state
+  // Search state (shared by the mobile inline field and the
+  // desktop full-width panel)
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
@@ -61,8 +78,8 @@ export default function Navbar() {
       <div className="flex w-full items-center justify-between px-6 py-6 sm:px-8 lg:px-10 lg:py-7 xl:px-16">
 
         {/* ================= LOGO ================= */}
-        <a
-          href="/"
+        <Link
+          to="/"
           className="flex shrink-0 flex-col leading-[1.15] no-underline"
         >
           <span className="font-serif text-xl sm:text-2xl">
@@ -72,7 +89,7 @@ export default function Navbar() {
           <span className="font-serif text-xl sm:text-2xl">
             Design Studio
           </span>
-        </a>
+        </Link>
 
 
         {/* ================= DESKTOP NAV ================= */}
@@ -98,8 +115,8 @@ export default function Navbar() {
             >
 
               {/* ================= DESKTOP MAIN NAV LINK ================= */}
-              <a
-                href={link.href}
+              <Link
+                to={link.href}
                 className="flex items-center gap-1 text-[12px] font-bold uppercase tracking-wide text-[#1C1C1A] no-underline transition-opacity hover:opacity-60 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#1C1C1A] lg:text-[13px]"
               >
                 {link.label}
@@ -110,22 +127,23 @@ export default function Navbar() {
                     strokeWidth={2.5}
                   />
                 )}
-              </a>
+              </Link>
 
 
               {/* ================= DESKTOP DROPDOWN ================= */}
               {link.dropdown &&
                 dropdownOpen === link.label && (
-                  <ul className="absolute left-0 top-full m-0 min-w-52.5 list-none bg-[#EFEDE4] py-2 pt-4 shadow-lg">
+                  <ul className="absolute left-0 top-full z-50 m-0 min-w-52.5 list-none bg-[#EFEDE4] py-2 pt-4 shadow-lg">
 
                     {link.dropdown.map((item) => (
-                      <li key={item}>
-                        <a
-                          href="#"
+                      <li key={item.label}>
+                        <Link
+                          to={item.href}
+                          onClick={() => setDropdownOpen(null)}
                           className="block px-4 py-2.5 text-[13px] text-[#1C1C1A] no-underline transition-opacity hover:opacity-60"
                         >
-                          {item}
-                        </a>
+                          {item.label}
+                        </Link>
                       </li>
                     ))}
 
@@ -135,60 +153,24 @@ export default function Navbar() {
           ))}
 
 
-          {/* ================= DESKTOP SEARCH ================= */}
-          <li className="relative">
-
-            {!searchOpen ? (
-              <button
-                type="button"
-                onClick={() => setSearchOpen(true)}
-                aria-label="Open search"
-                className="flex cursor-pointer items-center justify-center border-none bg-transparent p-1 text-[#1C1C1A] transition-opacity hover:opacity-60"
-              >
-                <Search
-                  size={19}
-                  strokeWidth={2}
-                />
-              </button>
-            ) : (
-
-              <form
-                onSubmit={handleSearch}
-                className="flex items-center border-b border-[#1C1C1A] bg-transparent"
-              >
-
-                <Search
-                  size={17}
-                  strokeWidth={2}
-                  className="mr-1 shrink-0"
-                />
-
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) =>
-                    setSearchQuery(e.target.value)
-                  }
-                  placeholder="Search"
-                  autoFocus
-                  className="w-24 bg-transparent px-1 py-1 text-[12px] text-[#1C1C1A] outline-none placeholder:text-[#1C1C1A]/60 lg:w-28"
-                />
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSearchOpen(false);
-                    setSearchQuery("");
-                  }}
-                  aria-label="Close search"
-                  className="cursor-pointer border-none bg-transparent p-1 text-[#1C1C1A] hover:opacity-60"
-                >
-                  <X size={14} />
-                </button>
-
-              </form>
-            )}
-
+          {/* ================= DESKTOP SEARCH TOGGLE ================= */}
+          {/* Just an icon button now — clicking it opens the
+              full-width panel below the whole header, it no longer
+              expands inline in the nav list. */}
+          <li>
+            <button
+              type="button"
+              onClick={() => setSearchOpen((open) => !open)}
+              aria-label={searchOpen ? "Close search" : "Open search"}
+              aria-expanded={searchOpen}
+              className="flex cursor-pointer items-center justify-center border-none bg-transparent p-1 text-[#1C1C1A] transition-opacity hover:opacity-60"
+            >
+              {searchOpen ? (
+                <X size={19} strokeWidth={2} />
+              ) : (
+                <Search size={19} strokeWidth={2} />
+              )}
+            </button>
           </li>
         </ul>
 
@@ -209,6 +191,52 @@ export default function Navbar() {
 
         </button>
 
+      </div>
+
+
+      {/* ================= DESKTOP FULL-WIDTH SEARCH PANEL ================= */}
+      {/*
+        Sits directly under the header and spans the full width of the
+        navbar. It's always in the DOM (so the height transition can
+        animate open/closed) and only shown from lg upward — mobile
+        keeps its own inline search field further down.
+      */}
+      <div
+        aria-hidden={!searchOpen}
+        className={`absolute inset-x-0 top-full z-30 hidden overflow-hidden bg-[#F7F6F2]/40 shadow-lg backdrop-blur-md transition-[grid-template-rows] duration-300 ease-in-out lg:grid ${
+          searchOpen
+            ? "grid-rows-[1fr] border-t border-black/5"
+            : "grid-rows-[0fr] border-t-0"
+        }`}
+      >
+        <div className="min-h-0 overflow-hidden">
+          <form
+            onSubmit={handleSearch}
+            className={`mx-auto flex  w-full max-w-3xl items-center gap-4 px-6 py-10 transition-opacity duration-200 lg:px-10 xl:px-16 ${
+              searchOpen ? "opacity-100 delay-100" : "opacity-0"
+            }`}
+          >
+            <Search size={20} strokeWidth={2} className="shrink-0 text-[#1C1C1A]" />
+
+            <input
+              type="text"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              placeholder="What are you looking for?"
+              autoFocus={searchOpen}
+              tabIndex={searchOpen ? 0 : -1}
+              className="flex-1 border-b border-[#1C1C1A]/40 bg-transparent py-2 text-[16px] text-[#1C1C1A] outline-none placeholder:text-[#1C1C1A]/50 focus:border-[#1C1C1A]"
+            />
+
+            <button
+              type="submit"
+              tabIndex={searchOpen ? 0 : -1}
+              className="shrink-0 rounded-md cursor-pointer border-none bg-[#6B7A3A] px-6 py-2.5 text-[12px] font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-80"
+            >
+              Search
+            </button>
+          </form>
+        </div>
       </div>
 
 
@@ -255,15 +283,15 @@ export default function Navbar() {
                   {/* ================= MOBILE NAV HEADER ================= */}
                   <div className="flex w-full items-center justify-between">
 
-                    {/* 
+                    {/*
                       MAIN LINK
 
-                      Clicking the text will directly open:
+                      Clicking the text will directly navigate to:
+                      /about
                       /services
-                      /projects
                     */}
-                    <a
-                      href={link.href}
+                    <Link
+                      to={link.href}
                       onClick={() => {
                         setMobileOpen(false);
                         setOpenMobileDropdown(null);
@@ -271,10 +299,10 @@ export default function Navbar() {
                       className="flex-1 py-3 text-[13px] font-bold uppercase tracking-wide text-[#1C1C1A] no-underline sm:text-[15px]"
                     >
                       {link.label}
-                    </a>
+                    </Link>
 
 
-                    {/* 
+                    {/*
                       DROPDOWN BUTTON
 
                       Clicking only the arrow opens/closes
@@ -316,18 +344,18 @@ export default function Navbar() {
                     <ul className="m-0 flex list-none flex-col gap-2 pb-3 pl-3">
 
                       {link.dropdown.map((item) => (
-                        <li key={item}>
+                        <li key={item.label}>
 
-                          <a
-                            href="#"
+                          <Link
+                            to={item.href}
                             onClick={() => {
                               setOpenMobileDropdown(null);
                               setMobileOpen(false);
                             }}
                             className="block py-1 text-[12px] text-[#1C1C1A] opacity-80 no-underline sm:text-[14px]"
                           >
-                            {item}
-                          </a>
+                            {item.label}
+                          </Link>
 
                         </li>
                       ))}
@@ -344,13 +372,13 @@ export default function Navbar() {
                   className="border-b border-black/5 sm:border-none"
                 >
 
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     onClick={() => setMobileOpen(false)}
                     className="flex items-center justify-between py-3 text-[13px] font-bold uppercase tracking-wide text-[#1C1C1A] no-underline sm:text-[15px]"
                   >
                     {link.label}
-                  </a>
+                  </Link>
 
                 </li>
 

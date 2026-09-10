@@ -1,10 +1,31 @@
 import React from "react";
+import { Link } from "react-router-dom";
+
+// Turns a label like "Interior Decor & Styling" into "interior-decor-styling"
+// so it always matches the id you put on the section in your page.
+const slugify = (str) =>
+  str
+    .toLowerCase()
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
 
 const navItems = [
   ["Homepage", "/"],
   ["About Us", "/about"],
   ["Services", "/services"],
   ["Project", "/projects"],
+  ["Contact Us", "/contact"],
+];
+
+const SERVICES = [
+  "Residential",
+  "Commercial",
+  "Interior Decor & Styling",
+  "Space Planning",
+  "Retail & Hospitality Design",
+  "Design Consultation",
+  "Custom Furniture Design",
 ];
 
 const Footer = () => {
@@ -20,13 +41,13 @@ const Footer = () => {
             <h2 className="max-w-278 text-[38px] font-black uppercase leading-[1.15] tracking-[4.2px] sm:text-[50px] lg:text-[60px]">
               Let&apos;s Design Your Next Space Together
             </h2>
-            <a
-              href="/contact"
+            <Link
+              to="/contact"
               className="relative mt-8 flex h-18.25 w-47.5 shrink-0 items-center justify-center overflow-hidden text-[15px] font-semibold uppercase tracking-[1.5px]"
             >
               <button
-                type="submit"
-                className="group relative flex h-40.25 w-full items-center justify-center overflow-hidden rounded-md bg-[#87864E] px-4 font-['Poppins'] text-[15px] font-semibold uppercase tracking-[2px] text-white sm:w-49.5"
+                type="button"
+                className="group relative flex h-40.25 w-full items-center justify-center overflow-hidden rounded-lg bg-[#87864E] px-4 font-['Poppins'] text-[15px] font-semibold uppercase tracking-[2px] text-white sm:w-49.5"
               >
                 {/* Sliding Background */}
                 <span className="absolute inset-0 origin-left scale-x-0 bg-[#919064] transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
@@ -34,7 +55,7 @@ const Footer = () => {
                 {/* Button Text */}
                 <span className="relative z-10">Contact Us</span>
               </button>
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -57,91 +78,46 @@ const Footer = () => {
                   <i className="fa-brands fa-square-facebook" />
                 </a>
                 <a
-                  href="#youtube"
-                  aria-label="YouTube"
-                  className="transition hover:text-[#636139]"
-                >
-                  <i className="fa-brands fa-square-youtube" />
-                </a>
-                <a
                   href="#instagram"
                   aria-label="Instagram"
                   className="transition hover:text-[#636139]"
                 >
                   <i className="fa-brands fa-instagram" />
                 </a>
-                <a
-                  href="#linkedin"
-                  aria-label="LinkedIn"
-                  className="transition hover:text-[#636139]"
-                >
-                  <i className="fa-brands fa-linkedin" />
-                </a>
               </div>
             </section>
             <nav aria-label="Footer navigation">
               <FooterTitle>Navigation</FooterTitle>
-              <ul className="space-y-3.5 text-[17px]">
+              <ul className="space-y-2.5 text-[17px]">
                 {navItems.map(([label, href]) => (
                   <li key={label}>
-                    <a
-                      href={href}
+                    <Link
+                      to={href}
                       className="flex items-center gap-3.5 transition hover:text-[#636139]"
                     >
-                      <i className="fa-solid fa-angle-right text-[20px] text-[#757575]" />
+                      {/* <i className="fa-solid fa-angle-right text-[20px] text-[#757575]" /> */}
                       {label}
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>
             </nav>
 
-            <section id="contact">
-              <FooterTitle>Contact Us</FooterTitle>
-
-              <div className="space-y-3.5 text-[17px]">
-                <p className="flex items-start gap-3.5">
-                  <i className="fa-solid fa-location-dot mt-1 text-[20px] text-[#757575]" />
-                  Lumbung Hidup East Java
-                </p>
-
-                <a
-                  href="mailto:hello@homco.com"
-                  className="flex items-center gap-3.5 transition hover:text-[#636139]"
-                >
-                  <i className="fa-solid fa-envelope text-[20px] text-[#757575]" />
-                  Hello@Homco.com
-                </a>
-              </div>
-
-              <form
-                className="mt-6 flex flex-col gap-3"
-                onSubmit={(event) => event.preventDefault()}
-              >
-                <label htmlFor="footer-email" className="sr-only">
-                  Email address
-                </label>
-
-                {/* Email input */}
-                <input
-                  id="footer-email"
-                  type="email"
-                  placeholder="Email Address"
-                  className="h-14.25 w-full border-0 border-b-4 border-[#757575] bg-white/25 px-5 text-[17px] outline-none placeholder:text-[#6E6E6E] focus:ring-2 focus:ring-[#87864E]"
-                />
-
-                {/* Subscribe button */}
-                <button
-                  type="submit"
-                  className="group relative flex h-16.25 w-40 items-center justify-center overflow-hidden rounded-md bg-[#87864E] px-4 font-['Poppins'] text-[15px] font-semibold uppercase tracking-[2px] text-white sm:w-49.5"
-                >
-                  {/* Sliding Background */}
-                  <span className="absolute inset-0 origin-left scale-x-0 bg-[#6f6e3f] transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
-
-                  {/* Button Text */}
-                  <span className="relative z-10">Subscribe</span>
-                </button>
-              </form>
+            <section id="services-footer-nav">
+              <FooterTitle>Our Services</FooterTitle>
+              <ul className="space-y-2 text-[17px]">
+                {SERVICES.map((service) => (
+                  <li key={service}>
+                    <Link
+                      to={`/services#${slugify(service)}`}
+                      className="flex items-center gap-3.5 transition hover:text-[#636139]"
+                    >
+                      {/* <i className="fa-solid fa-plus text-[20px] text-[#757575]" /> */}
+                      {service}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
             </section>
           </div>
 

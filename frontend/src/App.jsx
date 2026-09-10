@@ -9,10 +9,12 @@ import About from "./pages/AboutPage";
 import Contact from "./pages/ContactPage";
 import Services from "./pages/ServicesPage";
 import Projects from "./pages/ProjectsPage";
+import ScrollToHash from "./components/ScrollToHash";
 
 function App() {
   return (
     <BrowserRouter>
+    <ScrollToHash/>
       <Navbar />
 
       <Routes>
