@@ -1,47 +1,116 @@
 import { useEffect, useState } from "react";
 import { Star } from "lucide-react";
+import { client, urlFor } from "../../sanity/client";
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      review:
-        "Working with KM Kumhars was effortless from start to finish. They understood our vision instantly and turned our home into a space that feels warm, refined, and truly ours.",
-      name: "John De",
-      designation: "Art Director",
-      rating: 4,
-    },
-    {
-      review:
-        "The entire experience was smooth and professional. The team understood exactly what we wanted and transformed our space into something beautiful, functional, and timeless.",
-      name: "Sarah Lee",
-      designation: "Creative Director",
-      rating: 5,
-    },
-    {
-      review:
-        "From the initial concept to the final details, everything was handled with great care. Our home now feels sophisticated, comfortable, and completely personal.",
-      name: "Michael Roy",
-      designation: "Business Owner",
-      rating: 3,
-    },
-    {
-      review:
-        "KM Kumhars brought our ideas to life better than we could have imagined. Every detail was thoughtfully designed and the final result exceeded our expectations.",
-      name: "Emma Wilson",
-      designation: "Interior Consultant",
-      rating: 4,
-    },
-  ];
-
+  const [testimonials, setTestimonials] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [loading, setLoading] = useState(true);
 
+  // Fetch testimonials from Sanity
   useEffect(() => {
+    const fetchTestimonials = async () => {
+      try {
+        const data = await client.fetch(`
+          *[_type == "testimonial"] | order(_createdAt asc) {
+            _id,
+            rating,
+            review,
+            clientName,
+            designation,
+            image
+          }
+        `);
+
+        setTestimonials(data);
+      } catch (error) {
+        console.error("Error fetching testimonials:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchTestimonials();
+  }, []);
+
+  // Automatic carousel
+  useEffect(() => {
+    if (testimonials.length <= 1) return;
+
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
+      setCurrentIndex(
+        (prevIndex) => (prevIndex + 1) % testimonials.length
+      );
     }, 3000);
 
     return () => clearInterval(interval);
   }, [testimonials.length]);
+
+  // Loading state
+  if (loading) {
+    return (
+      <section className="w-full bg-white font-[Poppins]">
+        <div className="mx-auto max-w-[1400px] px-6 py-8 sm:px-8 md:px-10 lg:px-[40px] lg:py-[60px]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[48%_52%] lg:gap-0">
+            <div className="flex flex-col justify-center lg:pr-[60px]">
+              <p className="text-[15px] font-black uppercase tracking-[0.18em] text-[#757575]">
+                Clients Feedback
+              </p>
+
+              <h2 className="mt-4 max-w-[1060px] text-[25px] font-black uppercase leading-[1.45] tracking-[0.04em] text-[#191717] sm:text-[38px] lg:text-[35px]">
+                Our Testimonial From Best Clients
+              </h2>
+
+              <p className="mt-4 max-w-[520px] text-[13px] leading-[1.65] text-[#707070] sm:text-[14px] md:text-[15px] lg:text-[16px]">
+                We build every relationship on trust, clear communication, and
+                a shared commitment to getting the details right. Here's what
+                our clients have to say about working with us.
+              </p>
+            </div>
+
+            <div className="flex min-h-[207px] items-center justify-center border border-[#dedede] bg-white px-5 py-5 sm:px-7 sm:py-6 lg:px-5 lg:py-5 xl:px-7 xl:py-6">
+              <p className="text-[13px] text-[#707070]">
+                Loading testimonials...
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // If no testimonials exist in Sanity
+  if (testimonials.length === 0) {
+    return (
+      <section className="w-full bg-white font-[Poppins]">
+        <div className="mx-auto max-w-[1400px] px-6 py-8 sm:px-8 md:px-10 lg:px-[40px] lg:py-[60px]">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-[48%_52%] lg:gap-0">
+            <div className="flex flex-col justify-center lg:pr-[60px]">
+              <p className="text-[15px] font-black uppercase tracking-[0.18em] text-[#757575]">
+                Clients Feedback
+              </p>
+
+              <h2 className="mt-4 max-w-[1060px] text-[25px] font-black uppercase leading-[1.45] tracking-[0.04em] text-[#191717] sm:text-[38px] lg:text-[35px]">
+                Our Testimonial From Best Clients
+              </h2>
+
+              <p className="mt-4 max-w-[520px] text-[13px] leading-[1.65] text-[#707070] sm:text-[14px] md:text-[15px] lg:text-[16px]">
+                We build every relationship on trust, clear communication, and
+                a shared commitment to getting the details right. Here's what
+                our clients have to say about working with us.
+              </p>
+            </div>
+
+            <div className="flex min-h-[207px] items-center justify-center border border-[#dedede] bg-white px-5 py-5">
+              <p className="text-[13px] text-[#707070]">
+                No testimonials available.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
 
   const currentTestimonial = testimonials[currentIndex];
 
@@ -72,7 +141,7 @@ export default function Testimonials() {
           {/* Left Content */}
           <div className="flex flex-col justify-center lg:pr-[60px]">
             <p className="text-[15px] font-black uppercase tracking-[0.18em] text-[#757575] font-[Poppins]">
-                Clients Feedback
+              Clients Feedback
             </p>
 
             <h2 className="max-w-[1060px] mt-4 text-[25px] font-black uppercase leading-[1.45] tracking-[0.04em] text-[#191717] sm:text-[38px] lg:text-[35px] font-[Poppins]">
@@ -90,7 +159,10 @@ export default function Testimonials() {
           <div className="overflow-hidden border border-[#dedede] bg-white px-5 py-5 sm:px-7 sm:py-6 min-[1200px]:min-h-[207px] lg:px-5 lg:py-5 xl:px-7 xl:py-6">
 
             {/* Animated Testimonial Content */}
-            <div key={currentIndex} className="testimonial-slide-in">
+            <div
+              key={currentTestimonial._id}
+              className="testimonial-slide-in"
+            >
 
               {/* Stars */}
               <div className="flex items-center gap-2">
@@ -117,12 +189,28 @@ export default function Testimonials() {
               <div className="mt-6 flex items-center gap-4 font-[Poppins]">
 
                 {/* Avatar */}
-                <div className="h-[59px] w-[59px] shrink-0 rounded-full bg-[#f5f4f0]" />
+                <div className="flex h-[59px] w-[59px] shrink-0 items-center justify-center overflow-hidden rounded-full bg-[#f5f4f0]">
+                  {currentTestimonial.image ? (
+                    <img
+                      src={urlFor(currentTestimonial.image)
+                        .width(120)
+                        .height(120)
+                        .fit("crop")
+                        .url()}
+                      alt={currentTestimonial.clientName}
+                      className="h-full w-full object-cover"
+                    />
+                  ) : (
+                    <span className="text-[22px] font-bold uppercase text-[#454545]">
+                      {currentTestimonial.clientName?.trim().charAt(0)}
+                    </span>
+                  )}
+                </div>
 
                 {/* Name + Position */}
                 <div>
                   <p className="text-[12px] font-black uppercase tracking-[0.04em] text-[#292727] sm:text-[13px]">
-                    {currentTestimonial.name}
+                    {currentTestimonial.clientName}
                   </p>
 
                   <p className="mt-1 text-[10px] font-bold uppercase tracking-[0.08em] text-[#666666]">
