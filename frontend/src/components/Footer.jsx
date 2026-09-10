@@ -64,7 +64,7 @@ const Footer = () => {
           <div className="mx-auto grid w-[calc(100%-3rem)] max-w-270 grid-cols-1 gap-12 pb-14 md:grid-cols-2 lg:grid-cols-[427px_313px_1fr] lg:gap-x-12 lg:py-18 ">
             <section className="md:col-span-2 lg:col-span-1">
               <FooterTitle>Information</FooterTitle>
-              <p className="max-w-106.75 text-[17px] leading-[1.7]">
+              <p className="max-w-106.75 text-[12px] leading-[1.7] lg:text-[14px]">
                 KM Kumhars Design Studio creates timeless, functional interiors
                 for homes, offices, and businesses — spaces built with clarity,
                 craft, and purpose.
@@ -88,14 +88,13 @@ const Footer = () => {
             </section>
             <nav aria-label="Footer navigation">
               <FooterTitle>Navigation</FooterTitle>
-              <ul className="space-y-2.5 text-[17px]">
+              <ul className="space-y-1.5 text-[12px] lg:text-[14px]">
                 {navItems.map(([label, href]) => (
                   <li key={label}>
                     <Link
                       to={href}
                       className="flex items-center gap-3.5 transition hover:text-[#636139]"
                     >
-                      {/* <i className="fa-solid fa-angle-right text-[20px] text-[#757575]" /> */}
                       {label}
                     </Link>
                   </li>
@@ -105,14 +104,13 @@ const Footer = () => {
 
             <section id="services-footer-nav">
               <FooterTitle>Our Services</FooterTitle>
-              <ul className="space-y-2 text-[17px]">
+              <ul className="space-y-1 text-[12px] lg:text-[14px]">
                 {SERVICES.map((service) => (
                   <li key={service}>
                     <Link
                       to={`/services#${slugify(service)}`}
                       className="flex items-center gap-3.5 transition hover:text-[#636139]"
                     >
-                      {/* <i className="fa-solid fa-plus text-[20px] text-[#757575]" /> */}
                       {service}
                     </Link>
                   </li>
@@ -130,17 +128,17 @@ const Footer = () => {
                 flex-col
                 gap-3
                 py-4
-                text-[11px]
+                text-[10px]
                 font-semibold
                 uppercase
                 tracking-[1px]
                 text-center
                 sm:w-[calc(100%-3rem)]
-                sm:text-[13px]
+                sm:text-[11px]
 
                 md:gap-5
                 md:py-6.25
-                md:text-[15px]
+                md:text-[12px]
                 md:tracking-[1.5px]
 
                 lg:flex-row
@@ -174,7 +172,7 @@ const Footer = () => {
 };
 
 const FooterTitle = ({ children }) => (
-  <h4 className="mb-6 text-[18px] font-bold gap-2 uppercase leading-none tracking-[1.75px] text-[#0A0806]">
+  <h4 className="mb-3 text-[13px] lg:text-[15px] font-bold gap-2 uppercase leading-none tracking-[1.75px] text-[#0A0806]">
     {children}
   </h4>
 );
