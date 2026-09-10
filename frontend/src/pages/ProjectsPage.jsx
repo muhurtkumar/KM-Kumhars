@@ -1,11 +1,11 @@
-import Hero from "../components/Home/Hero";
+import ProjectHero from "../components/Project/ProjectHero";
 
-const Home = () => {
+const Projects = () => {
   return (
     <main>
-      <Hero />
+      <ProjectHero />
     </main>
   );
 };
 
-export default Home;
+export default Projects;
