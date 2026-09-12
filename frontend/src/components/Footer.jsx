@@ -1,8 +1,6 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-// Turns a label like "Interior Decor & Styling" into "interior-decor-styling"
-// so it always matches the id you put on the section in your page.
 const slugify = (str) =>
   str
     .toLowerCase()
@@ -29,40 +27,79 @@ const SERVICES = [
 ];
 
 const Footer = () => {
+  const cardRef = useRef(null);
+  const [halfCardHeight, setHalfCardHeight] = useState(0);
+
+  useEffect(() => {
+    const el = cardRef.current;
+    if (!el) return;
+
+    const measure = () => setHalfCardHeight(el.offsetHeight / 2);
+    measure();
+
+    const resizeObserver = new ResizeObserver(measure);
+    resizeObserver.observe(el);
+    window.addEventListener("resize", measure);
+
+    return () => {
+      resizeObserver.disconnect();
+      window.removeEventListener("resize", measure);
+    };
+  }, []);
+
   return (
     <footer className="font-[Poppins] text-[#3F3F3F]">
-      <div className="relative">
-        {/* The white page area behind the upper half of the Figma CTA card. */}
-        <div aria-hidden="true" className="h-40.25 bg-white" />
+      
+      <div
+        className="
+          relative
+          [--cta-gap-top:2rem] [--cta-gap-bottom:1.5rem]
+          sm:[--cta-gap-top:2.5rem] sm:[--cta-gap-bottom:1.75rem]
+          lg:[--cta-gap-top:2.5rem] lg:[--cta-gap-bottom:2rem]
+        "
+      >
+        
+        <div
+          className="bg-white"
+          style={{ height: `calc(var(--cta-gap-top) + ${halfCardHeight}px)` }}
+        />
 
-        {/* Figma CTA card: 1340 × 323, overlapping the white and cream areas. */}
-        <section className="absolute left-1/2 top-8 z-10 h-80.75 w-[calc(100%-2rem)] max-w-270 -translate-x-1/2 bg-[#636139] text-white sm:w-[calc(100%-3rem)]">
-          <div className="flex h-full flex-col items-center justify-center py-20 text-center">
-            <h2 className="max-w-278 text-[38px] font-black uppercase leading-[1.15] tracking-[4.2px] sm:text-[50px] lg:text-[60px]">
-              Let&apos;s Design Your Next Space Together
-            </h2>
-            <Link
-              to="/contact"
-              className="relative mt-8 flex h-18.25 w-47.5 shrink-0 items-center justify-center overflow-hidden text-[15px] font-semibold uppercase tracking-[1.5px]"
-            >
-              <button
-                type="button"
-                className="group relative flex h-40.25 w-full items-center justify-center overflow-hidden rounded-lg bg-[#87864E] px-4 font-['Poppins'] text-[15px] font-semibold uppercase tracking-[2px] text-white sm:w-49.5"
-              >
-                {/* Sliding Background */}
-                <span className="absolute inset-0 origin-left scale-x-0 bg-[#919064] transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+        <section
+          ref={cardRef}
+          className="
+            absolute left-1/2 z-10 w-[calc(100%-2rem)] max-w-270
+            -translate-x-1/2 -translate-y-1/2
+            flex flex-col items-center justify-center gap-6
+            bg-[#636139] px-6 py-10 text-center text-white
+            sm:w-[calc(100%-3rem)] sm:gap-8 sm:px-10 sm:py-14
+            lg:py-16
+          "
+          style={{ top: `calc(var(--cta-gap-top) + ${halfCardHeight}px)` }}
+        >
+          <h2 className="max-w-278 text-[38px] font-black uppercase leading-[1.15] tracking-[4.2px] sm:text-[50px] lg:text-[60px]">
+            Let&apos;s Design Your Next Space Together
+          </h2>
 
-                {/* Button Text */}
-                <span className="relative z-10">Contact Us</span>
-              </button>
-            </Link>
-          </div>
+          <Link
+            to="/contact"
+            className="group relative flex h-14 w-full max-w-49.5 items-center justify-center overflow-hidden rounded-lg bg-[#87864E] px-8 py-4 font-['Poppins'] text-[15px] font-semibold uppercase tracking-[2px] text-white sm:h-16"
+          >
+            {/* Sliding Background */}
+            <span className="absolute inset-0 origin-left scale-x-0 bg-[#919064] transition-transform duration-500 ease-out group-hover:scale-x-100"></span>
+
+            {/* Button Text */}
+            <span className="relative z-10">Contact Us</span>
+          </Link>
         </section>
 
-        {/* Footer background starts at the card midpoint; content clears the overlap. */}
-        <div className="bg-[#E8E7CE]/90 pt-63.5 sm:pt-65.5 lg:pt-40.5">
-          <div className="mx-auto grid w-[calc(100%-3rem)] max-w-270 grid-cols-1 gap-12 pb-14 md:grid-cols-2 lg:grid-cols-[427px_313px_1fr] lg:gap-x-12 lg:py-18 ">
-            <section className="md:col-span-2 lg:col-span-1">
+        <div
+          className="bg-[#E8E7CE]/90"
+          style={{
+            paddingTop: `calc(var(--cta-gap-bottom) + ${halfCardHeight}px)`,
+          }}
+        >
+          <div className="mx-auto grid w-[calc(100%-3rem)] max-w-270 grid-cols-2 gap-x-6 gap-y-12 pb-14 lg:grid-cols-[427px_313px_1fr] lg:gap-x-12 lg:py-18 pt-6 sm:pt-8">
+            <section className="col-span-2 lg:col-span-1">
               <FooterTitle>Information</FooterTitle>
               <p className="max-w-106.75 text-[12px] leading-[1.7] lg:text-[14px]">
                 KM Kumhars Design Studio creates timeless, functional interiors

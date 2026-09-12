@@ -11,7 +11,7 @@ const STEPS = [
 
 export default function HowWeWork() {
   return (
-    <section className="w-full bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28">
+    <section id="how-we-work" className="w-full scroll-mt-8 bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28">
       <div className="mx-auto w-full max-w-[1395px] px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20">
 
         <p className="font-[Poppins] text-[11px] font-bold uppercase tracking-wide text-[#707070] sm:text-xs">

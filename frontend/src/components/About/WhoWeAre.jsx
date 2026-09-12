@@ -11,7 +11,7 @@ const STATS = [
 
 export default function WhoWeAre() {
   return (
-    <section id="who-we-are" className="scroll-mt-10 w-full bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28 px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20">
+    <section id="who-we-are" className="scroll-mt-8 w-full bg-white pt-12 sm:pt-16 md:pt-20 lg:pt-24 xl:pt-28 px-6 sm:px-8 md:px-10 lg:px-16 xl:px-20">
       <div className="mx-auto max-w-[1395px]">
         {/* MOBILE + TABLET HEADING */}
         <div className="mb-8 lg:hidden">
