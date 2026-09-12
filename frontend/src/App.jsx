@@ -10,6 +10,7 @@ import Contact from "./pages/ContactPage";
 import Services from "./pages/ServicesPage";
 import Projects from "./pages/ProjectsPage";
 import ScrollToHash from "./components/ScrollToHash";
+import NotFound from "./components/NotFound";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/services" element={<Services />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
 
       <Footer />
