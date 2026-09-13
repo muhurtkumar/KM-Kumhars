@@ -44,7 +44,7 @@ export default {
   preview: {
     select: {
       title: 'title',
-      subtitle: 'category',
+      subtitle: 'fullCategory',
       media: 'images.0',
     },
   },
