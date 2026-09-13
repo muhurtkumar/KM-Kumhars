@@ -6,48 +6,58 @@ import DesignConsultationImage from "../../assets/Hero/DesignConsultation.png";
 import RetailDesignImage from "../../assets/Hero/RetailDesign.png";   
 import FurnitureDesignImage from "../../assets/Hero/FurnitureDesign.png";   
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import MarqueeImport from "react-fast-marquee";
 
 const Marquee = MarqueeImport.default || MarqueeImport;
-   
+
+// `slug` must match the `id` used on each row in ServiceDetailList.jsx
+// so that /services#slug scrolls to the right section.
 const services = [   
   {   
     title: "Residential Interiors",   
     description: "Elegant and functional homes designed around your lifestyle, personality, and comfort.",   
-    image: ResidentialImage,   
+    image: ResidentialImage,
+    slug: "residential",
   },   
   {   
     title: "Commercial Interiors",   
     description: "Innovative workspaces that enhance productivity and showcase your brand identity.",   
-    image: CommercialImage,   
+    image: CommercialImage,
+    slug: "commercial",
   },     
   {   
     title: "Space Planning",   
     description: "Creating balanced layouts that combine aesthetics, functionality and efficient space utilization.",   
-    image: SpacePlanningImage,   
+    image: SpacePlanningImage,
+    slug: "space-planning",
   },   
   {   
     title: "Design Consultation",   
     description: "Personalized consultations that help you make confident design decisions from the start.",   
-    image: DesignConsultationImage,   
+    image: DesignConsultationImage,
+    slug: "design-consultation",
   }, 
   {   
     title: "Interior Decor",   
     description: "Elegant décor solutions that transform interiors into stylish and inviting living spaces.",   
-    image: InteriorDecorImage,   
+    image: InteriorDecorImage,
+    slug: "interior-decor-and-styling",
   },   
   {   
     title: "Retail Design",   
     description: "Creating inviting spaces that elevate customer experiences and strengthen your brand identity.",   
-    image: RetailDesignImage,   
+    image: RetailDesignImage,
+    slug: "retail-and-hospitality-design",
   },   
   {   
     title: "Furniture Design",   
     description: "Bespoke furniture designed to perfectly complement your space, style, and functionality.",   
-    image: FurnitureDesignImage,   
+    image: FurnitureDesignImage,
+    slug: "custom-furniture-design",
   },   
 ];   
-   
+
 export default function OurServices() {   
   return (   
     <section className="w-full overflow-hidden py-3 font-[Poppins] sm:py-6 md:py-8">   
@@ -100,7 +110,11 @@ export default function OurServices() {
                   </p>   
    
                   {/* Explore Service */}  
-                  <div className="mt-2 flex items-center gap-3">  
+                  <Link
+                    to={`/services#${service.slug}`}
+                    className="mt-2 flex items-center gap-3"
+                    aria-label={`Explore ${service.title}`}
+                  >
                     <span className="border-b border-white pb-1 text-[12px] font-medium uppercase tracking-[0.08em] text-white">  
                       Explore Service  
                     </span>  
@@ -108,7 +122,7 @@ export default function OurServices() {
                     <div className="flex h-[30px] w-[30px] items-center justify-center rounded-full border border-white/60 text-[14px] text-white transition-transform duration-300 group-hover:translate-x-1">   
                       <ArrowRight size={14} strokeWidth={1.8} />   
                     </div>  
-                  </div>  
+                  </Link>
                 </div>   
               </div>   
             ))}   

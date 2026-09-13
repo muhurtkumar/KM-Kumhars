@@ -116,7 +116,7 @@ const ServiceRow = ({ service, reverse }) => {
     <div
       id={service.id}
       className={`
-        flex scroll-mt-33 flex-col overflow-hidden rounded-[12px] bg-[#f8f7f3]
+        flex scroll-mt-28 flex-col overflow-hidden rounded-[12px] bg-[#f8f7f3]
         lg:flex-row lg:items-stretch
         ${reverse ? "lg:flex-row-reverse" : ""}
       `}

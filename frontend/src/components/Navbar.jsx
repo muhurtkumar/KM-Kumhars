@@ -7,8 +7,6 @@ import {
   Search,
 } from "lucide-react";
 
-// Turns a label like "Interior Decor & Styling" into "interior-decor-styling"
-// so it always matches the id you put on the section in your page.
 const slugify = (str) =>
   str
     .toLowerCase()

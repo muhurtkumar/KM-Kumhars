@@ -5,7 +5,7 @@ export const client = createClient({
   projectId: "f4srwlgc",
   dataset: "production",
   apiVersion: "2026-01-01",
-  useCdn: true,
+  useCdn: import.meta.env.PROD,
 });
 
 const builder = imageUrlBuilder(client);

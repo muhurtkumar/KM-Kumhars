@@ -138,7 +138,7 @@ export default function WorkingProcess() {
             {/* CTA - Medium */} 
             <div className="md:block lg:hidden"> 
               <a 
-                href="#process" 
+                href="/about#how-we-work" 
                 className="group inline-flex items-center gap-3 text-[14px] font-bold not-italic uppercase tracking-[0.04em] text-[#191919]" 
               > 
                 <span className="border-b border-[#191919] pb-1"> 
@@ -156,7 +156,7 @@ export default function WorkingProcess() {
           {/* CTA - Large */}
           <div className="hidden lg:block">
             <a
-              href="#process"
+              href="/about#how-we-work"
               className="group inline-flex items-center gap-3 text-[14px] font-bold uppercase tracking-[0.04em] text-[#191919]"
             >
               <span className="border-b border-[#191919] pb-1">

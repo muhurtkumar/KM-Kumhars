@@ -5,8 +5,9 @@ const CATEGORIES = [
   "All",
   "Residential",
   "Commercial",
-  "Hospitality",
-  "Office",
+  "Retail & Hospitality",
+  "Interior Decor",
+  "Furniture Design",
 ];
 
 const ProjectFilters = ({
@@ -18,7 +19,7 @@ const ProjectFilters = ({
       <div className="mx-auto flex w-full max-w-[1400px] justify-center px-5 pb-8 sm:px-8 md:px-20 lg:px-[44px] lg:pb-20">
         <div
           className="
-            flex w-full max-w-[900px]
+            flex w-full max-w-[1400px]
             flex-wrap items-center justify-center
             gap-2.5
             sm:gap-3
@@ -62,6 +63,7 @@ const ProjectFilters = ({
                   lg:min-w-[145px]
                   lg:py-3.5
                   lg:text-[14px]
+                  cursor-pointer
 
                   ${
                     isActive

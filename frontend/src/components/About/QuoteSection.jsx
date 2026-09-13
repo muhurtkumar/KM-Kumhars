@@ -85,7 +85,7 @@ export default function QuoteSection() {
       </section>
 
       {/* FOUNDER'S NOTE */}
-      <div className="relative mx-auto w-full max-w-[1395px] px-6 py-10 sm:px-8 sm:py-14 md:px-10 md:py-16 lg:px-16 lg:py-16 xl:px-20 xl:py-20">
+      <div className="relative mx-auto w-full max-w-[1395px] px-6 pt-10 pb-4 sm:px-8 sm:pt-14 sm:pb-6 md:px-10 md:pt-16 md:pb-8 lg:px-16 lg:pt-16 lg:pb-8">
         <div
           id="founder-s-note"
           className="scroll-mt-40 border-l-[5px] border-[#858C4A] bg-[#F7F6F2] px-5 py-8 sm:px-7 sm:py-10 lg:px-8 lg:py-11"
