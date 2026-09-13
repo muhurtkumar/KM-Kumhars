@@ -1,4 +1,7 @@
+import { useEffect, useState } from "react";
+
 import ProjectCard from "./ProjectCard";
+import LoadMoreButton from "./LoadMoreButton";
 
 // Temporary project data.
 // This will eventually come from Sanity CMS.
@@ -45,16 +48,92 @@ const PROJECTS = [
     location: "Lucknow",
     image: "/src/assets/Project/project-6.png",
   },
+  {
+    id: 7,
+    title: "Boutique Hospitality",
+    category: "Residential",
+    location: "Lucknow",
+    image: "/src/assets/Project/project-6.png",
+  },
+  {
+    id: 8,
+    title: "Luxury Commercial Space",
+    category: "Residential",
+    location: "Lucknow",
+    image: "/src/assets/Project/project-6.png",
+  },
+  {
+    id: 9,
+    title: "Luxury Commercial Space",
+    category: "Residential",
+    location: "Lucknow",
+    image: "/src/assets/Project/project-6.png",
+  },
+  {
+    id: 10,
+    title: "Luxury Commercial Space",
+    category: "Residential",
+    location: "Lucknow",
+    image: "/src/assets/Project/project-6.png",
+  },
+  {
+    id: 11,
+    title: "Luxury Commercial Space",
+    category: "Residential",
+    location: "Lucknow",
+    image: "/src/assets/Project/project-6.png",
+  },
+  {
+    id: 12,
+    title: "Luxury Commercial Space",
+    category: "Residential",
+    location: "Lucknow",
+    image: "/src/assets/Project/project-6.png",
+  },
+  {
+    id: 13,
+    title: "Luxury Commercial Space",
+    category: "Residential",
+    location: "Lucknow",
+    image: "/src/assets/Project/project-6.png",
+  },
+  {
+    id: 14,
+    title: "Luxury Commercial Space",
+    category: "Residential",
+    location: "Lucknow",
+    image: "/src/assets/Project/project-6.png",
+  },
 ];
 
 const ProjectGrid = ({ activeCategory = "All", onProjectClick }) => {
-  // Show all projects or only the selected category
+  // Number of projects currently visible on the page
+  const [visibleCount, setVisibleCount] = useState(6);
+
+  // Filter projects according to the selected category
   const filteredProjects =
     activeCategory === "All"
       ? PROJECTS
       : PROJECTS.filter(
           (project) => project.category === activeCategory
         );
+
+  // Reset visible projects whenever the category changes
+  useEffect(() => {
+    setVisibleCount(6);
+  }, [activeCategory]);
+
+  // Display only the currently visible projects
+  const visibleProjects = filteredProjects.slice(0, visibleCount);
+
+  // Check whether there are still projects to display
+  const hasMoreProjects = visibleCount < filteredProjects.length;
+
+  // Load three more projects each time the button is clicked
+ // Show all available projects when Load More is clicked
+const handleLoadMore = () => {
+  setVisibleCount(filteredProjects.length);
+};
 
   return (
     <section className="w-full bg-[#F7F6F2] font-[Poppins]">
@@ -77,7 +156,7 @@ const ProjectGrid = ({ activeCategory = "All", onProjectClick }) => {
             lg:gap-7
           "
         >
-          {filteredProjects.map((project) => (
+          {visibleProjects.map((project) => (
             <ProjectCard
               key={project.id}
               project={project}
@@ -86,13 +165,21 @@ const ProjectGrid = ({ activeCategory = "All", onProjectClick }) => {
           ))}
         </div>
 
-        {/* Empty state when a category has no projects */}
+        {/* Empty state when no projects match the category */}
         {filteredProjects.length === 0 && (
           <div className="py-16 text-center">
             <p className="text-[15px] font-medium text-[#777777]">
               No projects found in this category.
             </p>
           </div>
+        )}
+
+        {/* Load more button appears only when more projects are available */}
+        {filteredProjects.length > 0 && (
+          <LoadMoreButton
+            onClick={handleLoadMore}
+            hasMore={hasMoreProjects}
+          />
         )}
       </div>
     </section>

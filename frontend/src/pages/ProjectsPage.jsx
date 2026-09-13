@@ -3,14 +3,22 @@ import { useState } from "react";
 import ProjectHero from "../components/Project/ProjectHero";
 import ProjectFilters from "../components/Project/ProjectFilters";
 import ProjectGrid from "../components/Project/ProjectGrid";
+import FeaturedProject from "../components/Project/FeaturedProject";
+
+import { FEATURED_PROJECT } from "../components/Project/projectData";
 
 const ProjectsPage = () => {
-  // Stores the category selected by the user
+  // Stores the currently selected project category
   const [activeCategory, setActiveCategory] = useState("All");
 
-  // Will be used later to open the project detail page
+  // Handles project card selection
   const handleProjectClick = (project) => {
     console.log("Selected project:", project);
+  };
+
+  // Handles the featured project action
+  const handleFeaturedProject = (project) => {
+    console.log("Featured project:", project);
   };
 
   return (
@@ -18,16 +26,22 @@ const ProjectsPage = () => {
       {/* Projects hero section */}
       <ProjectHero />
 
-      {/* Category filter buttons */}
+      {/* Project category filters */}
       <ProjectFilters
         activeCategory={activeCategory}
         onCategoryChange={setActiveCategory}
       />
 
-      {/* Filtered project cards */}
+      {/* Project cards and Load More button */}
       <ProjectGrid
         activeCategory={activeCategory}
         onProjectClick={handleProjectClick}
+      />
+
+      {/* Featured project */}
+      <FeaturedProject
+        project={FEATURED_PROJECT}
+        onViewProject={handleFeaturedProject}
       />
     </main>
   );
