@@ -34,6 +34,18 @@ export default {
       type: 'string',
     },
     {
+      name: 'description',
+      title: 'Project Description',
+      type: 'text',
+      rows: 5,
+    },
+    {
+      name: 'keyHighlights',
+      title: 'Key Highlights',
+      type: 'array',
+      of: [{ type: 'string' }],
+    },
+    {
       name: 'images',
       title: 'Project Images',
       type: 'array',
