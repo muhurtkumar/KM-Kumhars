@@ -1,5 +1,6 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,7 +16,9 @@ import NotFound from "./components/NotFound";
 function App() {
   return (
     <BrowserRouter>
-    <ScrollToHash/>
+      <ScrollToHash />
+      <Toaster position="top-right" />
+
       <Navbar />
 
       <Routes>
