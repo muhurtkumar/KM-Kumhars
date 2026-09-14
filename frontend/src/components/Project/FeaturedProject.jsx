@@ -28,12 +28,12 @@ const FeaturedProject = ({ project, onViewProject }) => {
           w-full
           max-w-[1400px]
           px-5
-          pb-10
+          pb-5
           sm:px-8
-          sm:pb-12
-          md:px-10
+          sm:pb-6
+          md:px-5
           lg:px-[44px]
-          lg:pb-16
+          lg:pb-6
         "
       >
         <div
