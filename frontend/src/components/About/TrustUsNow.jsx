@@ -3,7 +3,6 @@ import {
   CheckCircle2,
 } from "lucide-react";
 
-// Replace this path with your actual image path
 import trustUsImage from "../../assets/about/trust-us.png";
 
 const TRUST_POINTS = [

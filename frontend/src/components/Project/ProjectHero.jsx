@@ -83,51 +83,6 @@ export default function ProjectHero() {
             commercial, and hospitality projects
           </p>
 
-          {/* View All Projects Button */}
-          <a
-            href="#projects"
-            className="
-              group
-              mt-5
-              inline-flex
-              items-center
-              justify-center
-              gap-2
-              rounded-[8px]
-              bg-[#87864E]
-              px-4
-              py-2
-              font-[Poppins]
-              text-[9px]
-              font-semibold
-              text-white
-              transition-all
-              duration-300
-              hover:bg-[#6f703f]
-              sm:mt-6
-              sm:px-5
-              sm:py-2.5
-              sm:text-[10px]
-              md:text-[11px]
-              lg:rounded-[9px]
-              lg:px-6
-              lg:py-3
-              lg:text-[12px]
-            "
-          >
-            <span>View all projects</span>
-
-            {/* Small arrow */}
-            <span
-              className="
-                transition-transform
-                duration-300
-                group-hover:translate-x-1
-              "
-            >
-              →
-            </span>
-          </a>
         </div>
 
         {/* =====================================================

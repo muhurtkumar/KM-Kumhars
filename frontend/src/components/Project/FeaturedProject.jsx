@@ -208,19 +208,19 @@ const FeaturedProject = ({ project, onViewProject }) => {
                 bg-[#87864E]
                 px-5
                 py-2
-                text-[8px]
+                text-[12px]
                 font-semibold
                 text-white
                 transition-all
                 duration-300
                 hover:bg-[#6f703f]
 
-                sm:text-[9px]
+                sm:text-[12px]
 
                 lg:mt-5
                 lg:px-6
                 lg:py-2.5
-                lg:text-[10px]
+                lg:text-[12px]
               "
             >
               View case study

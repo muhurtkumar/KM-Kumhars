@@ -43,7 +43,7 @@ export default function PerfectPartner() {
             </p>
 
             <a
-              href="#projects"
+              href="/projects"
               className="group relative mt-8 inline-flex h-[46px] w-[168px] items-center justify-center gap-5 overflow-hidden rounded-[10px] bg-[#87864E] text-[15px] font-semibold uppercase tracking-[0.1em] text-white sm:text-[16px] md:h-[76px] md:w-[312px] md:text-[18px] lg:h-[52px] lg:w-[168px] lg:gap-0 lg:text-[13px] font-[Poppins]"
             >
               <span className="absolute inset-0 origin-left scale-x-0 bg-[#6f6e3f] transition-transform duration-500 ease-out group-hover:scale-x-100" />
