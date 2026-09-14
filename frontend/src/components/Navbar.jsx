@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import toast from "react-hot-toast";
 import {
   ChevronDown,
   Menu,
@@ -46,6 +47,7 @@ const NAV_LINKS = [
 
 export default function Navbar() {
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
 
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -60,6 +62,17 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
 
+  // Keep the search field synchronized with the URL search query
+  useEffect(() => {
+    const queryFromUrl = searchParams.get("search") || "";
+    setSearchQuery(queryFromUrl);
+  }, [searchParams]);
+
+  // Search is considered active ONLY when a search query
+  // has actually been submitted and exists in the URL.
+  const activeSearchQuery = searchParams.get("search") || "";
+  const hasActiveSearch = Boolean(activeSearchQuery.trim());
+
   const handleSearch = (e) => {
     e.preventDefault();
 
@@ -68,11 +81,27 @@ export default function Navbar() {
     if (!query) return;
 
     // Redirect to the projects page with the search query
-    navigate(`/projects?search=${encodeURIComponent(query)}#project-filters`);
+    navigate(
+      `/projects?search=${encodeURIComponent(query)}#project-filters`
+    );
+
+    // Show success toast
+    toast.success(`Showing projects for "${query}"`);
 
     // Close mobile menu and desktop search panel
     setSearchOpen(false);
     setMobileOpen(false);
+  };
+
+  const handleClearSearch = () => {
+    // Clear the search field
+    setSearchQuery("");
+
+    // Return to the project filters section without a search
+    navigate("/projects#project-filters");
+
+    // Show clear search toast
+    toast.success("Search cleared");
   };
 
   return (
@@ -207,7 +236,7 @@ export default function Navbar() {
         <div className="min-h-0 overflow-hidden">
           <form
             onSubmit={handleSearch}
-            className={`mx-auto flex  w-full max-w-3xl items-center gap-4 px-6 py-10 transition-opacity duration-200 lg:px-10 xl:px-16 ${
+            className={`mx-auto flex w-full max-w-3xl items-center gap-4 px-6 py-10 transition-opacity duration-200 lg:px-10 xl:px-16 ${
               searchOpen ? "opacity-100 delay-100" : "opacity-0"
             }`}
           >
@@ -228,11 +257,12 @@ export default function Navbar() {
             />
 
             <button
-              type="submit"
+              type={hasActiveSearch ? "button" : "submit"}
+              onClick={hasActiveSearch ? handleClearSearch : undefined}
               tabIndex={searchOpen ? 0 : -1}
               className="shrink-0 rounded-md cursor-pointer border-none bg-[#6B7A3A] px-6 py-2.5 text-[12px] font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-80"
             >
-              Search Project
+              {hasActiveSearch ? "Clear Search" : "Search"}
             </button>
           </form>
         </div>
@@ -264,6 +294,19 @@ export default function Navbar() {
               placeholder="Search by project or location"
               className="w-full bg-transparent text-[13px] text-[#1C1C1A] outline-none placeholder:text-[#1C1C1A]/60"
             />
+
+            {/* Clear search option appears only after
+                a search has actually been submitted */}
+            {hasActiveSearch && (
+              <button
+                type="button"
+                onClick={handleClearSearch}
+                aria-label="Clear search"
+                className="ml-2 flex shrink-0 cursor-pointer items-center justify-center border-none bg-transparent p-1 text-[#1C1C1A] transition-opacity hover:opacity-60"
+              >
+                <X size={15} strokeWidth={2} />
+              </button>
+            )}
 
           </form>
 

@@ -51,7 +51,7 @@ const ProjectCard = ({ project, onClick }) => {
       </div>
 
       {/* Project information */}
-      <div className="px-1 py-4">
+      <div className="px-5 py-4">
         <h3 className="text-[17px] font-bold text-[#211F1F]">
           {project.title}
         </h3>
