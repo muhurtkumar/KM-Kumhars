@@ -105,11 +105,14 @@ const FeaturedProjectModal = ({ project, onClose }) => {
           </p>
 
           {/* Description */}
+                    {/* Description */}
           <div className="mt-4 min-w-0">
             {project.description && (
-              <p className="max-w-[1500px] break-words text-[14px] font-normal leading-[1.65] text-[#747681] sm:text-[15px]">
-                {project.description}
-              </p>
+              <div className="max-h-[260px] overflow-y-auto pr-3 [scrollbar-width:thin] [scrollbar-color:#C7C4BA_transparent]">
+                <p className="max-w-[1500px] break-words text-justify text-[14px] font-normal leading-[1.65] text-[#747681] sm:text-[15px]">
+                  {project.description}
+                </p>
+              </div>
             )}
           </div>
 
@@ -173,7 +176,7 @@ const FeaturedProjectModal = ({ project, onClose }) => {
           {/* Duration (kept separate since the modal card is a 3-col grid and
               FeaturedProject has 4 stats on the homepage card: area / duration / location) */}
           {project.duration && (
-            <div className="mt-6 flex min-w-0 items-center gap-3 text-[13px] text-[#747681]">
+            <div className="mt-6 flex min-w-0 items-center gap-1 text-[13px] text-[#747681]">
               <span className="font-semibold text-[#151515]">
                 {project.duration}
               </span>

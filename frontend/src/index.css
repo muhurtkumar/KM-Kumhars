@@ -1,1 +1,11 @@
 @import "tailwindcss";
+.project-description-scroll::-webkit-scrollbar {
+  width: 5px;
+}
+.project-description-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+.project-description-scroll::-webkit-scrollbar-thumb {
+  background-color: #C7C4BA;
+  border-radius: 9999px;
+}

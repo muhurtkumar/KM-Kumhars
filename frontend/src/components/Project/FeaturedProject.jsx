@@ -165,6 +165,8 @@ const FeaturedProject = ({ project, onViewProject }) => {
             <p
               className="
                 mt-1
+                line-clamp-3
+                text-justify
                 max-w-[500px]
                 text-[11px]
                 font-semibold
