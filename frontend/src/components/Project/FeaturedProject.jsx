@@ -1,11 +1,27 @@
+import { useState } from "react";
 import { ArrowUpRight } from "lucide-react";
+import FeaturedProjectModal from "./FeaturedProjectModal";
 
 const FeaturedProject = ({ project, onViewProject }) => {
+  // Controls the "case study" details view for this featured project
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   // Don't render the section if there is no featured project
   if (!project) return null;
 
+  const handleViewProject = () => {
+    setIsModalOpen(true);
+    // Still notify a parent if it wants to know (e.g. for analytics)
+    onViewProject?.(project);
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <section className="w-full bg-white font-[Poppins]">
+    <>
+      <section className="w-full bg-white font-[Poppins]">
       <div
         className="
           mx-auto
@@ -196,7 +212,7 @@ const FeaturedProject = ({ project, onViewProject }) => {
             {/* View project button */}
             <button
               type="button"
-              onClick={() => onViewProject?.(project)}
+              onClick={handleViewProject}
               className="
                 group/button
                 mt-4
@@ -237,7 +253,13 @@ const FeaturedProject = ({ project, onViewProject }) => {
           </div>
         </div>
       </div>
-    </section>
+      </section>
+
+      {/* Featured project "case study" details view */}
+      {isModalOpen && (
+        <FeaturedProjectModal project={project} onClose={handleCloseModal} />
+      )}
+    </>
   );
 };
 
