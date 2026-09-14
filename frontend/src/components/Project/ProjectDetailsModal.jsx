@@ -151,7 +151,7 @@ const ProjectDetailsModal = ({
       {/* Main */}
       <div className="mx-auto flex w-full max-w-[1600px] min-w-0 flex-col lg:flex-row">
         {/* LEFT - IMAGE AREA */}
-        <div className="min-w-0 w-full px-0 pt-0 lg:w-[63%] lg:px-0 lg:pt-0">
+        <div className="min-w-0 w-full px-0 pt-0 lg:w-[59%] lg:px-0 lg:pt-0">
           {/* Main Image */}
           <div className="relative aspect-[4/3] w-full overflow-hidden bg-[#EAE7E0] lg:aspect-[1.42/1]">
             {currentImage && (
@@ -246,7 +246,7 @@ const ProjectDetailsModal = ({
         </div>
 
         {/* RIGHT - PROJECT INFORMATION */}
-        <div className="flex min-w-0 w-full flex-col px-6 pb-10 pt-7 sm:px-8 lg:w-[37%] lg:px-10 lg:pb-12 lg:pt-8 xl:px-11 font-[Poppins]">
+        <div className="flex min-w-0 w-full flex-col px-6 pb-10 pt-7 sm:px-8 lg:w-[41%] lg:px-10 lg:pb-12 lg:pt-8 xl:px-11 font-[Poppins]">
           {/* Project Navigation */}
           <div className="flex min-w-0 items-center justify-between gap-3">
             <span className="flex-shrink-0 text-[12px] font-medium text-[#777783] sm:text-[13px]">
@@ -304,7 +304,7 @@ const ProjectDetailsModal = ({
           </div>
 
           {/* Title + Description */}
-          <div className="mt-12 min-w-0 sm:mt-14 lg:mt-12">
+          <div className="mt-12 min-w-0 sm:mt-14 lg:mt-8">
             <h1 className="break-words font-[Poppins] text-[34px] font-bold leading-[1.1] tracking-[-0.04em] text-[#101010] sm:text-[42px] xl:text-[48px]">
               {project.title}
             </h1>
@@ -330,7 +330,7 @@ const ProjectDetailsModal = ({
                 <p className="text-[11px] font-normal text-[#777783] sm:text-[12px]">
                   Category
                 </p>
-                <p className="mt-2 break-words text-[12px] font-semibold leading-[1.35] text-[#151515] sm:text-[13px]">
+                <p className="mt-2 break-words text-[12px] font-semibold leading-[1.35] text-[#151515] sm:text-[12px]">
                   {project.fullCategory || project.category || "—"}
                 </p>
               </div>

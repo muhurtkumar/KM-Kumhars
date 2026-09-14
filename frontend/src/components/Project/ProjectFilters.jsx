@@ -15,7 +15,10 @@ const ProjectFilters = ({
   onCategoryChange,
 }) => {
   return (
-    <section className="w-full bg-[#F7F6F2] pt-10 font-[Poppins] sm:pt-5 md:pt-8 lg:pt-12">
+    <section
+      id="project-filters"
+      className="w-full bg-[#F7F6F2] pt-10 font-[Poppins] sm:pt-5 md:pt-8 lg:pt-12"
+    >
       <div className="mx-auto flex w-full max-w-[1400px] justify-center px-5 pb-8 sm:px-8 md:px-20 lg:px-[44px] lg:pb-20">
         <div
           className="

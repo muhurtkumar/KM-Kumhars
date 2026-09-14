@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 import ProjectCard from "./ProjectCard";
 import LoadMoreButton from "./LoadMoreButton";
@@ -6,6 +7,10 @@ import ProjectDetailsModal from "./ProjectDetailsModal";
 import { client, urlFor } from "../../sanity/client";
 
 const ProjectGrid = ({ activeCategory = "All" }) => {
+  // Search query from the URL
+  const [searchParams] = useSearchParams();
+  const searchQuery = searchParams.get("search") || "";
+
   // Number of projects currently visible on the page
   const [visibleCount, setVisibleCount] = useState(6);
 
@@ -42,17 +47,29 @@ const ProjectGrid = ({ activeCategory = "All" }) => {
   }, []);
 
   // Filter projects according to the selected category
-  const filteredProjects =
-    activeCategory === "All"
-      ? projects
-      : projects.filter(
-          (project) => project.fullCategory === activeCategory
-        );
+  // and the search query from the URL
+  const filteredProjects = projects.filter((project) => {
+    // Category filter
+    const matchesCategory =
+      activeCategory === "All" ||
+      project.fullCategory === activeCategory;
 
-  // Reset visible projects whenever the category changes
+    // Search filter
+    const query = searchQuery.trim().toLowerCase();
+
+    const matchesSearch =
+      !query ||
+      project.title?.toLowerCase().includes(query) ||
+      project.location?.toLowerCase().includes(query);
+
+    return matchesCategory && matchesSearch;
+  });
+
+  // Reset visible projects whenever the category
+  // or search query changes
   useEffect(() => {
     setVisibleCount(6);
-  }, [activeCategory]);
+  }, [activeCategory, searchQuery]);
 
   // Display only the currently visible projects
   const visibleProjects = filteredProjects.slice(0, visibleCount);
@@ -84,6 +101,7 @@ const ProjectGrid = ({ activeCategory = "All" }) => {
     <>
       <section className="w-full bg-[#F7F6F2] font-[Poppins]">
         <div className="mx-auto w-full max-w-[1400px] px-5 pb-12 sm:px-8 md:px-10 lg:px-[44px] lg:pb-16">
+
           {/* Responsive project grid */}
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 lg:gap-7">
             {visibleProjects.map((project) => (
@@ -93,7 +111,10 @@ const ProjectGrid = ({ activeCategory = "All" }) => {
                   ...project,
                   category: project.fullCategory,
                   image: project.images?.[0]
-                    ? urlFor(project.images[0]).width(1200).quality(90).url()
+                    ? urlFor(project.images[0])
+                        .width(1200)
+                        .quality(90)
+                        .url()
                     : null,
                 }}
                 onClick={handleProjectClick}
@@ -101,11 +122,13 @@ const ProjectGrid = ({ activeCategory = "All" }) => {
             ))}
           </div>
 
-          {/* Empty state when no projects match the category */}
+          {/* Empty state when no projects match the category or search */}
           {filteredProjects.length === 0 && (
             <div className="py-16 text-center">
               <p className="text-[15px] font-medium text-[#777777]">
-                No projects found in this category.
+                {searchQuery
+                  ? "No projects found matching your search."
+                  : "No projects found in this category."}
               </p>
             </div>
           )}

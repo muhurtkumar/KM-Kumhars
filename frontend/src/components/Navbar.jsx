@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   ChevronDown,
   Menu,
@@ -45,6 +45,8 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const navigate = useNavigate();
+
   const [mobileOpen, setMobileOpen] = useState(false);
 
   // Desktop dropdown state
@@ -61,12 +63,16 @@ export default function Navbar() {
   const handleSearch = (e) => {
     e.preventDefault();
 
-    if (!searchQuery.trim()) return;
+    const query = searchQuery.trim();
 
-    console.log("Searching for:", searchQuery);
+    if (!query) return;
 
-    // Connect this later to your search page if required
-    // window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
+    // Redirect to the projects page with the search query
+    navigate(`/projects?search=${encodeURIComponent(query)}#project-filters`);
+
+    // Close mobile menu and desktop search panel
+    setSearchOpen(false);
+    setMobileOpen(false);
   };
 
   return (
@@ -152,9 +158,6 @@ export default function Navbar() {
 
 
           {/* ================= DESKTOP SEARCH TOGGLE ================= */}
-          {/* Just an icon button now — clicking it opens the
-              full-width panel below the whole header, it no longer
-              expands inline in the nav list. */}
           <li>
             <button
               type="button"
@@ -193,12 +196,6 @@ export default function Navbar() {
 
 
       {/* ================= DESKTOP FULL-WIDTH SEARCH PANEL ================= */}
-      {/*
-        Sits directly under the header and spans the full width of the
-        navbar. It's always in the DOM (so the height transition can
-        animate open/closed) and only shown from lg upward — mobile
-        keeps its own inline search field further down.
-      */}
       <div
         aria-hidden={!searchOpen}
         className={`absolute inset-x-0 top-full z-30 hidden overflow-hidden bg-[#F7F6F2]/40 shadow-lg backdrop-blur-md transition-[grid-template-rows] duration-300 ease-in-out lg:grid ${
@@ -214,13 +211,17 @@ export default function Navbar() {
               searchOpen ? "opacity-100 delay-100" : "opacity-0"
             }`}
           >
-            <Search size={20} strokeWidth={2} className="shrink-0 text-[#1C1C1A]" />
+            <Search
+              size={20}
+              strokeWidth={2}
+              className="shrink-0 text-[#1C1C1A]"
+            />
 
             <input
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="What are you looking for?"
+              placeholder="Search by project name or location"
               autoFocus={searchOpen}
               tabIndex={searchOpen ? 0 : -1}
               className="flex-1 border-b border-[#1C1C1A]/40 bg-transparent py-2 text-[16px] text-[#1C1C1A] outline-none placeholder:text-[#1C1C1A]/50 focus:border-[#1C1C1A]"
@@ -231,7 +232,7 @@ export default function Navbar() {
               tabIndex={searchOpen ? 0 : -1}
               className="shrink-0 rounded-md cursor-pointer border-none bg-[#6B7A3A] px-6 py-2.5 text-[12px] font-bold uppercase tracking-wide text-white transition-opacity hover:opacity-80"
             >
-              Search
+              Search Project
             </button>
           </form>
         </div>
@@ -260,7 +261,7 @@ export default function Navbar() {
               onChange={(e) =>
                 setSearchQuery(e.target.value)
               }
-              placeholder="Search"
+              placeholder="Search by project or location"
               className="w-full bg-transparent text-[13px] text-[#1C1C1A] outline-none placeholder:text-[#1C1C1A]/60"
             />
 
@@ -281,13 +282,6 @@ export default function Navbar() {
                   {/* ================= MOBILE NAV HEADER ================= */}
                   <div className="flex w-full items-center justify-between">
 
-                    {/*
-                      MAIN LINK
-
-                      Clicking the text will directly navigate to:
-                      /about
-                      /services
-                    */}
                     <Link
                       to={link.href}
                       onClick={() => {
@@ -300,12 +294,6 @@ export default function Navbar() {
                     </Link>
 
 
-                    {/*
-                      DROPDOWN BUTTON
-
-                      Clicking only the arrow opens/closes
-                      the dropdown.
-                    */}
                     <button
                       type="button"
                       onClick={() =>
